@@ -2,9 +2,7 @@
   <div class="col header">
     <div class="navbar">
       <div class="logobox">
-        <NuxtLink to="/"
-          ><img src="~/static/RaMiJoLogo.png" alt="RaMiJo Logo"
-        /></NuxtLink>
+        <NuxtLink to="/"><LazySvgLogo /></NuxtLink>
       </div>
       <div class="nav">
         <nav class="navbar-nav">
@@ -72,14 +70,14 @@ export default Vue.extend({
 <style lang="scss">
 // The main class for the header
 .header {
-  background: white;
+  background: #80ac75;
   height: 100px;
   position: fixed;
   z-index: 1000;
   padding: 0;
 
   a {
-    color: black;
+    color: white;
   }
 
   // The whole navbar
@@ -127,13 +125,13 @@ export default Vue.extend({
           // When hovering on a navbar link
           &:hover {
             text-decoration: unset;
-            color: gray;
+            color: rgb(219, 219, 219);
           }
         }
 
         // The nuxtlink which equals the page
         .nuxt-link-exact-active {
-          color: gray;
+          color: rgb(219, 219, 219);
         }
       }
 
@@ -152,8 +150,9 @@ export default Vue.extend({
       align-items: center;
 
       // The CoCreate logo
-      img {
-        width: 150px;
+      .Logo {
+        width: 200px;
+        height: 100px;
       }
 
       // Changes the width of the CoCreate on 1000px width

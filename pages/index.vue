@@ -1,10 +1,10 @@
 <template>
   <div>
-    <LazyBanner />
+    <!-- <LazyBanner />
     <LazyApproach />
     <LazyATM />
     <img src="~/assets/img/arrow.png" class="arrow-atm-company" />
-    <LazyCompany />
+    <LazyCompany /> -->
   </div>
 </template>
 
