@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>hallo?</h1>
     <LazyBanner />
     <LazyApproach />
     <LazyATM />
