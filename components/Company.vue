@@ -15,11 +15,6 @@
         officia aut!
       </p>
     </div>
-    <img
-      src="~/assets/img/logo-bibliotheek-noord-veluwe.jpg"
-      alt="Bibliotheek Noord-Veluwe"
-      width="350"
-    />
   </div>
 </template>
 

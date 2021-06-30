@@ -17,6 +17,10 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 
+  p {
+    margin: 0;
+  }
+
   // Main flex-container class
   .flex-container {
     display: flex;

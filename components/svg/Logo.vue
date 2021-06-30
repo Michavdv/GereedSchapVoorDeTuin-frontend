@@ -4,8 +4,8 @@
       class="Logo"
       xmlns="http://www.w3.org/2000/svg"
       width="1920"
-      height="1080"
-      viewBox="0 0 1920 1080"
+      height="500"
+      viewBox="0 0 1920 500"
     >
       <defs>
         <style>
@@ -29,7 +29,7 @@
         <text
           id="Gereedschap"
           class="cls-1"
-          transform="translate(10.91 557.247) scale(9.953)"
+          transform="translate(23.91 295.246) scale(9.953)"
         >
           Gereedschap
         </text>
@@ -37,7 +37,7 @@
           id="voor_de_tuin"
           data-name="voor de tuin"
           class="cls-2"
-          transform="translate(725.042 687.511) scale(5.202)"
+          transform="translate(738.042 425.511) scale(5.202)"
         >
           voor de tuin
         </text>

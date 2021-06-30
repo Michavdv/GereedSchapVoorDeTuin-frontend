@@ -1,45 +1,38 @@
 <template>
-  <div class="col header">
-    <div class="navbar">
-      <div class="logobox">
-        <NuxtLink to="/"><LazySvgLogo /></NuxtLink>
-      </div>
-      <div class="nav">
-        <nav class="navbar-nav">
-          <NuxtLink to="/">Home</NuxtLink>
-          <NuxtLink to="/over-ons">Over ons</NuxtLink>
-        </nav>
-        <button
-          class="navbar-toggler"
-          type="button"
-          aria-label="Toggle navigation"
-          @click="toggleMenu()"
-        >
-          <span class="navbar-toggler-icon">
-            <font-awesome-icon
-              v-if="!menuOpen"
-              class="hamburger-menu-icon"
-              :icon="['fas', 'bars']"
+  <div class="page-overlay">
+    <div class="flex-container header">
+      <!-- <div id="header-info" class="flex-container">
+      <p><strong>Gratis</strong> verzending vanaf 20,-</p>
+      <p>Bezorging dezelfde dag, 's avonds of in het weekend*</p>
+      <p><strong>Gratis</strong> retourneren</p>
+    </div> -->
+      <div class="header-link">
+        <div class="flex-container navbar">
+          <div class="logobox">
+            <NuxtLink to="/"><LazySvgLogo /></NuxtLink>
+          </div>
+          <div class="search-box">
+            <input
+              placeholder="Waar ben je naar opzoek?"
+              class="searchbar"
+              type="text"
             />
-            <font-awesome-icon
-              v-if="menuOpen"
-              class="hamburger-menu-icon"
-              :icon="['fas', 'times']"
-            />
-          </span>
-        </button>
+          </div>
+          <div class="flex-container icons">
+            <a>
+              <p>Aanmelden</p>
+              <font-awesome-icon class="icon" :icon="['fas', 'user']" />
+            </a>
+            <a>
+              <font-awesome-icon class="icon" :icon="['fas', 'heart']" />
+            </a>
+            <a>
+              <font-awesome-icon class="icon" :icon="['fas', 'shopping-cart']"
+            /></a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div
-      id="mobile-nav"
-      :class="menuOpen ? 'mobile-nav-open' : 'mobile-nav-closed'"
-    >
-      <nav>
-        <NuxtLink to="/" @click.native="toggleMenu()">Home</NuxtLink>
-        <NuxtLink to="/over-ons" @click.native="toggleMenu()"
-          >Over ons</NuxtLink
-        >
-      </nav>
+      <LazyCategory />
     </div>
   </div>
 </template>
@@ -47,236 +40,106 @@
 <script>
 import Vue from 'vue'
 
-export default Vue.extend({
-  data() {
-    // The default values for the mobile navbar
-    return {
-      menuOpen: false,
-    }
-  },
-  methods: {
-    // Method for opening and closing the navbar on mobile
-    toggleMenu() {
-      if (this.menuOpen) {
-        this.menuOpen = false
-      } else {
-        this.menuOpen = true
-      }
-    },
-  },
-})
+export default Vue.extend({})
 </script>
 
 <style lang="scss">
-// The main class for the header
 .header {
-  background: #80ac75;
-  height: 100px;
+  flex-direction: column;
   position: fixed;
   z-index: 1000;
   padding: 0;
+  width: 100vw;
 
-  a {
-    color: white;
-  }
+  // #header-info {
+  //   background-color: white;
+  //   justify-content: space-evenly;
+  //   font-size: 13px;
+  //   padding: 5px;
+  //   max-width: 1200px;
+  //   margin: auto;
 
-  // The whole navbar
-  .navbar {
-    padding: 0 10% 0 10%;
-    height: 100%;
-    width: 100%;
-    -webkit-box-shadow: 6px 7px 15px -9px rgba(0, 0, 0, 0.5);
-    box-shadow: 6px 7px 15px -9px rgba(0, 0, 0, 0.5);
+  //   p {
+  //     margin: 0;
+  //   }
+  // }
 
-    // The navbar part with the links
-    .nav {
-      display: flex;
-      align-content: center;
-      justify-content: flex-end;
+  // The main class for the header
+  .header-link {
+    background: #80ac75;
+    height: 80px;
+    width: 100vw;
 
-      // The navbar links
-      .navbar-nav {
-        display: inline;
+    // The whole navbar
+    .navbar {
+      padding: 0.25rem 2rem;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      height: 100%;
+      min-width: 18.25rem;
+      max-width: 76rem;
+      margin: 0 auto;
 
-        .apply-button {
-          color: white;
-          background-color: black;
-          border: unset;
-          padding: 10px 20px 10px 20px;
-          font-weight: 600;
-          margin-left: 15px;
+      // The logo class
+      .logobox {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        // The CoCreate logo
+        .Logo {
+          width: 200px;
+          height: 70px;
         }
 
-        .apply-button:hover {
-          box-shadow: inset 1px 1px 20px rgba(255, 255, 255, 0.3);
-          transition: 0.2s ease;
-        }
-
-        .apply-button:active {
-          transform: translateY(2px);
-        }
-
-        // A navbar link
-        a {
-          font-size: 18px;
-          font-weight: 700;
-          padding: 0 15px 0 15px;
-
-          // When hovering on a navbar link
-          &:hover {
-            text-decoration: unset;
-            color: rgb(219, 219, 219);
+        // Changes the width of the CoCreate on 1000px width
+        @media only screen and (max-width: 1000px) {
+          .Logo {
+            width: 150px;
           }
         }
+      }
 
-        // The nuxtlink which equals the page
-        .nuxt-link-exact-active {
-          color: rgb(219, 219, 219);
+      .search-box {
+        flex: 1;
+        max-width: 40rem;
+        margin: 0.5rem 1.5rem;
+
+        .searchbar {
+          width: 100%;
+          height: 3rem;
+          padding-left: 1.5rem;
+          cursor: text;
+          border-radius: 15px;
+          border: 0px;
+          transition: box-shadow 0.2s ease-in-out;
+        }
+
+        .searchbar::-webkit-input-placeholder {
+          opacity: 0.8;
+          font-size: 16px;
+        }
+
+        .searchbar:focus {
+          outline: none;
+          box-shadow: 0px 0px 10px 2px rgba($color: #000000, $alpha: 0.4);
         }
       }
 
-      // Changes the navbar links into a clickable hamburger on 1000px width
-      @media only screen and (max-width: 1000px) {
-        .navbar-nav {
-          display: none;
-        }
-      }
-    }
-
-    // The logo class
-    .logobox {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-
-      // The CoCreate logo
-      .Logo {
-        width: 200px;
-        height: 100px;
-      }
-
-      // Changes the width of the CoCreate on 1000px width
-      @media only screen and (max-width: 1000px) {
-        img {
-          width: 100px;
-        }
-      }
-    }
-
-    // The clickable hamburger
-    .navbar-toggler {
-      display: none;
-
-      // The icon of the clickable hamburger
-      .hamburger-menu-icon {
-        font-size: 30px;
-      }
-    }
-
-    // Shows the clickable hamburger on 1000px width
-    @media only screen and (max-width: 1000px) {
-      .navbar-toggler {
-        display: inline;
-      }
-    }
-  }
-
-  // The content within the clickable hamburger
-  #mobile-nav {
-    display: none;
-  }
-
-  // Shows the content within the clickable hamburger
-  @media only screen and (max-width: 1000px) {
-    // The main mobile navbar class
-    #mobile-nav {
-      background: gray;
-      align-content: center;
-      justify-content: flex-start;
-      display: flex;
-      flex-flow: column;
-      height: 0;
-
-      // The navbar links
-      nav {
-        display: flex;
-        align-content: center;
-        justify-content: top;
-        flex-flow: column;
-        padding: 2vh 0;
-        text-align: center;
-        overflow: hidden;
-
-        // A navbar link
+      .icons {
         a {
-          font-size: 34px;
-          font-weight: 700;
-          padding-top: 5vh;
-          color: black;
+          display: flex;
+          color: white;
           text-decoration: none;
+          cursor: pointer;
 
-          &:focus {
+          .icon {
+            font-size: 25px;
             color: white;
-          }
-
-          &:hover {
-            color: white;
+            width: 40px;
+            margin: 0 5px;
           }
         }
-
-        // The nuxtlink which equals the page
-        .nuxt-link-exact-active {
-          color: white;
-        }
-      }
-
-      // The contact information
-      .mobile-nav-contact {
-        margin-top: 30px;
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        overflow: hidden;
-
-        // The icons of the contact information
-        .mobile-nav-icon {
-          font-size: 32px;
-          color: black;
-          margin: 0 15px;
-        }
-      }
-    }
-
-    // Opening the navbar
-    .mobile-nav-open {
-      height: 100vh;
-      animation: openNav 0.4s forwards;
-    }
-
-    // Closing the navbar
-    .mobile-nav-closed {
-      height: 0;
-      animation: closeNav 0.4s forwards;
-    }
-
-    // The animation for opening the navbar
-    @keyframes openNav {
-      from {
-        height: 0;
-      }
-      to {
-        height: 100vh;
-      }
-    }
-
-    // The animation for closing the navbar
-    @keyframes closeNav {
-      from {
-        height: 100vh;
-      }
-      to {
-        height: 0;
-        display: none;
       }
     }
   }
