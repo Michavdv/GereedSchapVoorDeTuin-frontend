@@ -3,42 +3,42 @@ export const state = () => ({
   list: [
     {
       id: 1,
-      Name: 'Flitsmeister One Waarschuwingsmelder',
+      Name: 'Talen Tools - Schep - Steel 120 cm',
       Price: '25,-',
       Image: {
-        url: require('~/assets/img/schep.jpg'),
+        url: require('~/assets/img/products/schep.jpg'),
       },
     },
     {
       id: 2,
-      Name: 'Flitsmeister One Waarschuwingsmelder',
+      Name: 'Talen Tools - Bezem - Steel 120 cm',
       Price: '25,-',
       Image: {
-        url: require('~/assets/img/schep.jpg'),
+        url: require('~/assets/img/products/bezem.jpg'),
       },
     },
     {
       id: 3,
-      Name: 'Flitsmeister One Waarschuwingsmelder',
+      Name: 'Talen Tools - Bladhark - Steel 120 cm',
       Price: '25,-',
       Image: {
-        url: require('~/assets/img/schep.jpg'),
+        url: require('~/assets/img/products/hark.jpg'),
       },
     },
     {
       id: 4,
-      Name: 'Flitsmeister One Waarschuwingsmelder',
+      Name: 'Talen Tools - Voegenkrabber - Steel 120 cm',
       Price: '25,-',
       Image: {
-        url: require('~/assets/img/schep.jpg'),
+        url: require('~/assets/img/products/voegen.jpg'),
       },
     },
     {
       id: 5,
-      Name: 'Flitsmeister One Waarschuwingsmelder',
+      Name: 'Talen Tools - Schoffel - Steel 120 cm',
       Price: '25,-',
       Image: {
-        url: require('~/assets/img/schep.jpg'),
+        url: require('~/assets/img/products/schoffel.jpg'),
       },
     },
   ],

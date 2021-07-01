@@ -32,13 +32,14 @@
           </div>
         </div>
       </div>
-      <div class="flex-container categories">
+      <div class="flex-container categories-header">
         <div class="category-list">
-          <a class="category">Tuingereedschap</a>
-          <a class="category">Tuingereedschap</a>
-          <a class="category">Tuingereedschap</a>
-          <a class="category">Tuingereedschap</a>
-          <a class="category">Tuingereedschap</a>
+          <a
+            v-for="category in $store.state.category.list"
+            :key="category.Id"
+            class="category-header"
+            >{{ category.Name }}</a
+          >
         </div>
       </div>
     </div>
@@ -153,7 +154,7 @@ export default Vue.extend({})
     }
   }
 
-  .categories {
+  .categories-header {
     background-color: rgb(233, 241, 234);
     width: 100vw;
 
@@ -162,7 +163,7 @@ export default Vue.extend({})
       list-style-type: none;
       justify-content: space-evenly;
 
-      .category {
+      .category-header {
         font-weight: 500;
         margin: 0 10px;
         color: #80ac75;
@@ -171,7 +172,7 @@ export default Vue.extend({})
         padding: 10px 0;
       }
 
-      .category:hover {
+      .category-header:hover {
         border-bottom: 3px solid #80ac75;
       }
     }

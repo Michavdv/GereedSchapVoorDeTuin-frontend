@@ -3,28 +3,28 @@
     <div class="flex-container banners">
       <img
         class="banner-large"
-        src="~/assets/img/Banner-sale.jpg"
+        src="~/assets/img/banners/talen-tools.jpg"
         alt="Banner"
       />
       <div class="flex-container banner-small">
         <img
           class="banner-small-part"
-          src="~/assets/img/schep.jpg"
+          src="~/assets/img/banners/snoeischaar.jpg"
           alt="Banner"
         />
         <img
           class="banner-small-part"
-          src="~/assets/img/schep.jpg"
+          src="~/assets/img/banners/werk.jpg"
           alt="Banner"
         />
         <img
           class="banner-small-part"
-          src="~/assets/img/schep.jpg"
+          src="~/assets/img/banners/samen.jpg"
           alt="Banner"
         />
         <img
           class="banner-small-part"
-          src="~/assets/img/schep.jpg"
+          src="~/assets/img/banners/schepje.jpg"
           alt="Banner"
         />
       </div>
@@ -44,10 +44,13 @@
 
   .banner-small {
     width: 100%;
+    justify-content: space-between;
+    gap: 20px;
 
     .banner-small-part {
-      width: 24%;
-      margin: 0 10px;
+      width: 23%;
+      height: 16rem;
+      object-fit: cover;
     }
   }
 }
