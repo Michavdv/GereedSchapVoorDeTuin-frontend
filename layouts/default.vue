@@ -1,7 +1,7 @@
 <template>
   <div class="container-page">
-    <Header class="main-header" />
-    <Nuxt />
+    <Header />
+    <Nuxt class="pages" />
   </div>
 </template>
 
@@ -32,6 +32,13 @@ html {
   .container-page {
     display: flex;
     flex-direction: column;
+
+    .pages {
+      min-width: 18.25rem;
+      max-width: 78rem;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
 
     .main {
       flex: 1;

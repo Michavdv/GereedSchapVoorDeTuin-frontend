@@ -1,8 +1,6 @@
 <template>
   <div>
-    <LazyCompany />
-    <LazyCompany />
-    <LazyCompany />
-    <LazyCompany />
+    <LazyHomeBanner />
+    <LazyHomeProduct />
   </div>
 </template>
