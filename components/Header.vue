@@ -101,13 +101,6 @@ export default Vue.extend({})
           width: 200px;
           height: 70px;
         }
-
-        // Changes the width of the CoCreate on 1000px width
-        @media only screen and (max-width: 1000px) {
-          .Logo {
-            width: 150px;
-          }
-        }
       }
 
       .search-box {
@@ -175,6 +168,16 @@ export default Vue.extend({})
       .category-header:hover {
         border-bottom: 3px solid #80ac75;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .header {
+    margin: 0;
+
+    .header-info {
+      display: none;
     }
   }
 }

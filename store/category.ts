@@ -52,7 +52,7 @@ export const state = () => ({
     },
     {
       id: 8,
-      Name: 'Bijlen',
+      Name: 'Grond',
       Image: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },

@@ -37,7 +37,6 @@ html {
       min-width: 18.25rem;
       max-width: 78rem;
       margin: 0 auto;
-      padding: 0 40px;
     }
 
     .main {

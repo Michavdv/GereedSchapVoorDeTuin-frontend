@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="category-part">
     <h4 class="categories-title">Kies een categorie</h4>
     <div class="flex-container categories">
       <a
@@ -20,30 +20,49 @@
 </template>
 
 <style lang="scss">
-.categories-title {
-  font-weight: bold;
+.category-part {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0 40px;
+
+  .categories-title {
+    font-weight: bold;
+  }
+
+  .categories {
+    justify-content: space-between;
+    flex-flow: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+
+    .category {
+      flex-direction: column;
+      align-items: center;
+      max-width: 150px;
+      margin-bottom: 20px;
+      cursor: pointer;
+
+      .category-image {
+        max-height: 7rem;
+      }
+
+      .category-name {
+        color: #80ac75;
+        font-size: 15px;
+      }
+    }
+  }
 }
 
-.categories {
-  justify-content: space-around !important;
-  flex-flow: wrap;
-  gap: 10px;
-  margin-bottom: 40px;
-
-  .category {
-    flex-direction: column;
+@media screen and (max-width: 1080px) {
+  .category-part {
     align-items: center;
-    max-width: 150px;
-    margin-bottom: 20px;
-    cursor: pointer;
 
-    .category-image {
-      max-height: 7rem;
-    }
-
-    .category-name {
-      color: #80ac75;
-      font-size: 15px;
+    .categories {
+      max-width: 700px;
+      justify-content: center;
+      max-height: 100%;
     }
   }
 }
