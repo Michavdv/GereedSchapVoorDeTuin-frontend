@@ -1,47 +1,88 @@
 <template>
-  <div class="page-overlay">
-    <div class="flex-container header">
-      <div class="flex-container header-info">
-        <a><strong>Gratis</strong> verzending vanaf 20,-</a>
-        <a>Bezorging dezelfde dag, 's avonds of in het weekend*</a>
-        <a><strong>Gratis</strong> retourneren</a>
-      </div>
-      <div class="header-link">
-        <div class="flex-container navbar">
-          <div class="logobox">
-            <NuxtLink to="/"><LazySvgLogo /></NuxtLink>
-          </div>
-          <div class="search-box">
-            <input
-              placeholder="Waar ben je naar opzoek?"
-              class="searchbar"
-              type="text"
-            />
-          </div>
-          <div class="flex-container icons">
-            <a>
-              <p>Aanmelden</p>
-              <font-awesome-icon class="icon" :icon="['fas', 'user']" />
-            </a>
-            <a>
-              <font-awesome-icon class="icon" :icon="['fas', 'heart']" />
-            </a>
-            <a>
-              <font-awesome-icon class="icon" :icon="['fas', 'shopping-cart']"
-            /></a>
-          </div>
+  <div class="flex-container header">
+    <div class="flex-container header-info">
+      <a><strong>Gratis</strong> verzending vanaf 20,-</a>
+      <a>Bezorging dezelfde dag, 's avonds of in het weekend*</a>
+      <a><strong>Gratis</strong> retourneren</a>
+    </div>
+    <div class="header-link">
+      <div class="flex-container navbar">
+        <div class="logobox">
+          <button
+            class="navbar-toggler"
+            type="button"
+            aria-label="Toggle navigation"
+            @click="toggleMenu()"
+          >
+            <span class="navbar-toggler-icon">
+              <font-awesome-icon
+                v-if="!menuOpen"
+                class="hamburger-menu-icon"
+                :icon="['fas', 'bars']"
+              />
+              <font-awesome-icon
+                v-if="menuOpen"
+                class="hamburger-menu-icon"
+                :icon="['fas', 'times']"
+              />
+            </span>
+          </button>
+          <NuxtLink to="/"><LazySvgLogo /></NuxtLink>
         </div>
+        <div class="search-box">
+          <input
+            placeholder="Waar ben je naar opzoek?"
+            class="searchbar"
+            type="text"
+          />
+        </div>
+        <nav class="flex-container icons">
+          <NuxtLink to="/">
+            <p class="login">Aanmelden</p>
+            <font-awesome-icon class="icon" :icon="['fas', 'user']" />
+          </NuxtLink>
+          <NuxtLink to="/">
+            <font-awesome-icon class="icon" :icon="['fas', 'heart']" />
+          </NuxtLink>
+          <NuxtLink to="/">
+            <font-awesome-icon class="icon" :icon="['fas', 'shopping-cart']"
+          /></NuxtLink>
+        </nav>
       </div>
-      <div class="flex-container categories-header">
-        <div class="category-list">
-          <a
+    </div>
+    <div class="flex-container categories-header">
+      <div class="category-list">
+        <NuxtLink
+          v-for="category in $store.state.category.list"
+          :key="category.Id"
+          to="/"
+          class="category-header"
+          >{{ category.Name }}
+        </NuxtLink>
+      </div>
+      <div class="search-box-mobile">
+        <input
+          placeholder="Waar ben je naar opzoek?"
+          class="searchbar"
+          type="text"
+        />
+      </div>
+    </div>
+    <div
+      id="mobile-nav"
+      :class="menuOpen ? 'mobile-nav-open' : 'mobile-nav-closed'"
+    >
+      <nav>
+        <div class="flex-container category-list-mobile">
+          <NuxtLink
             v-for="category in $store.state.category.list"
             :key="category.Id"
-            class="category-header"
-            >{{ category.Name }}</a
-          >
+            to="/"
+            class="category-header-mobile"
+            >{{ category.Name }}
+          </NuxtLink>
         </div>
-      </div>
+      </nav>
     </div>
   </div>
 </template>
@@ -49,7 +90,24 @@
 <script>
 import Vue from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  data() {
+    // The default values for the mobile navbar
+    return {
+      menuOpen: false,
+    }
+  },
+  methods: {
+    // Method for opening and closing the navbar on mobile
+    toggleMenu() {
+      if (this.menuOpen) {
+        this.menuOpen = false
+      } else {
+        this.menuOpen = true
+      }
+    },
+  },
+})
 </script>
 
 <style lang="scss">
@@ -58,7 +116,6 @@ export default Vue.extend({})
   // position: fixed;
   // z-index: 1000;
   padding: 0;
-  width: 100vw;
   margin-bottom: 40px;
 
   .header-info {
@@ -67,7 +124,7 @@ export default Vue.extend({})
     padding: 5px;
 
     a {
-      margin: 0 3rem;
+      margin: 0 2.8rem;
       text-decoration: none;
       cursor: pointer;
     }
@@ -100,6 +157,17 @@ export default Vue.extend({})
         .Logo {
           width: 200px;
           height: 70px;
+        }
+      }
+
+      .navbar-toggler {
+        display: none;
+        font-size: 1.1rem;
+        color: white;
+
+        // The icon of the clickable hamburger
+        .hamburger-menu-icon {
+          font-size: 26px;
         }
       }
 
@@ -138,7 +206,6 @@ export default Vue.extend({})
 
           .icon {
             font-size: 25px;
-            color: white;
             width: 40px;
             margin: 0 5px;
           }
@@ -169,6 +236,14 @@ export default Vue.extend({})
         border-bottom: 3px solid #80ac75;
       }
     }
+
+    .search-box-mobile {
+      display: none;
+    }
+  }
+
+  #mobile-nav {
+    display: none;
   }
 }
 
@@ -178,6 +253,156 @@ export default Vue.extend({})
 
     .header-info {
       display: none;
+    }
+
+    .header-link {
+      .navbar {
+        padding: 0.25rem 1rem;
+        .logobox {
+          .Logo {
+            width: 150px;
+          }
+        }
+
+        .navbar-toggler {
+          display: inline;
+        }
+
+        .search-box {
+          display: none;
+        }
+
+        .icons {
+          .login {
+            display: none;
+          }
+
+          a {
+            .icon {
+              font-size: 22px;
+              width: 30px;
+            }
+          }
+        }
+      }
+    }
+
+    .categories-header {
+      .category-list {
+        display: none;
+      }
+
+      .search-box-mobile {
+        display: inline;
+        flex: 1;
+        max-width: 45rem;
+        margin: 0.5rem 1.5rem;
+
+        .searchbar {
+          width: 100%;
+          height: 3rem;
+          padding-left: 1.5rem;
+          cursor: text;
+          border-radius: 15px;
+          border: 0px;
+          transition: box-shadow 0.2s ease-in-out;
+        }
+
+        .searchbar::-webkit-input-placeholder {
+          opacity: 0.8;
+          font-size: 16px;
+        }
+
+        .searchbar:focus {
+          outline: none;
+          box-shadow: 0px 0px 10px 2px rgba($color: #000000, $alpha: 0.4);
+        }
+      }
+    }
+
+    // The main mobile navbar class
+    #mobile-nav {
+      background: rgb(233, 241, 234);
+      align-content: center;
+      justify-content: flex-start;
+      display: flex;
+      flex-flow: column;
+      height: 0;
+
+      .category-list-mobile {
+        flex-direction: column;
+        padding-top: 10px;
+        // A navbar link
+        .category-header-mobile {
+          font-size: 25px;
+          font-weight: 700;
+          padding: 10px 0;
+          color: #80ac75;
+          text-decoration: none;
+
+          &:focus {
+            color: gray;
+          }
+
+          &:hover {
+            color: gray;
+          }
+        }
+      }
+    }
+
+    // The contact information
+    .mobile-nav-contact {
+      margin-top: 30px;
+      display: flex;
+      align-content: center;
+      justify-content: center;
+      overflow: hidden;
+
+      // The icons of the contact information
+      .mobile-nav-icon {
+        font-size: 32px;
+        color: white;
+        margin: 0 15px;
+      }
+    }
+
+    // Opening the navbar
+    .mobile-nav-open {
+      width: 100%;
+      animation: openNav 0.4s forwards;
+    }
+
+    // Closing the navbar
+    .mobile-nav-closed {
+      height: 0;
+      width: 100%;
+      animation: closeNav 0.4s forwards;
+
+      .category-list-mobile {
+        display: none;
+      }
+    }
+
+    // The animation for opening the navbar
+    @keyframes openNav {
+      from {
+        height: 0;
+      }
+      to {
+        height: 500px;
+      }
+    }
+
+    // The animation for closing the navbar
+    @keyframes closeNav {
+      from {
+        height: 500px;
+      }
+      to {
+        height: 0;
+        display: none;
+      }
     }
   }
 }
