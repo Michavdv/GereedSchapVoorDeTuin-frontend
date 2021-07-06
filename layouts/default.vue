@@ -32,11 +32,13 @@ html {
   .container-page {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
 
     .pages {
       min-width: 18.25rem;
       max-width: 78rem;
-      margin: 0 auto;
     }
 
     .main {

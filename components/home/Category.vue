@@ -2,9 +2,10 @@
   <div class="category-part">
     <h4 class="categories-title">Kies een categorie</h4>
     <div class="flex-container categories">
-      <a
+      <NuxtLink
         v-for="category in $store.state.category.list"
         :key="category.Id"
+        :to="'/' + category.Name"
         class="flex-container category"
       >
         <img
@@ -14,7 +15,7 @@
           loading="lazy"
         />
         <p class="category-name">{{ category.Name }}</p>
-      </a>
+      </NuxtLink>
     </div>
   </div>
 </template>
@@ -33,13 +34,13 @@
   .categories {
     justify-content: space-between;
     flex-flow: wrap;
-    gap: 10px;
     margin-bottom: 40px;
 
     .category {
       flex-direction: column;
       align-items: center;
       max-width: 150px;
+      margin: 0 5px;
       margin-bottom: 20px;
       cursor: pointer;
 

@@ -55,7 +55,7 @@
         <NuxtLink
           v-for="category in $store.state.category.list"
           :key="category.Id"
-          to="/"
+          :to="'/' + category.Name"
           class="category-header"
           >{{ category.Name }}
         </NuxtLink>
@@ -77,9 +77,12 @@
           <NuxtLink
             v-for="category in $store.state.category.list"
             :key="category.Id"
-            to="/"
+            :to="'/' + category.Name"
             class="category-header-mobile"
-            >{{ category.Name }}
+          >
+            <span @click="toggleMenu()">
+              {{ category.Name }}
+            </span>
           </NuxtLink>
         </div>
       </nav>

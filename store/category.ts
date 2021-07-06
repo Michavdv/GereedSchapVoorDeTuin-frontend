@@ -7,12 +7,18 @@ export const state = () => ({
       Image: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
+      PageBanner: {
+        url: require('~/assets/img/banners/werk.jpg'),
+      },
     },
     {
       id: 2,
       Name: 'Harken',
       Image: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
+      },
+      PageBanner: {
+        url: require('~/assets/img/banners/talen-tools.jpg'),
       },
     },
     {
@@ -21,12 +27,18 @@ export const state = () => ({
       Image: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
+      PageBanner: {
+        url: require('~/assets/img/banners/talen-tools.jpg'),
+      },
     },
     {
       id: 4,
       Name: 'Bezems',
       Image: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
+      },
+      PageBanner: {
+        url: require('~/assets/img/banners/talen-tools.jpg'),
       },
     },
     {
@@ -35,12 +47,18 @@ export const state = () => ({
       Image: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
+      PageBanner: {
+        url: require('~/assets/img/banners/talen-tools.jpg'),
+      },
     },
     {
       id: 6,
       Name: 'Onkruidkrabbers',
       Image: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
+      },
+      PageBanner: {
+        url: require('~/assets/img/banners/talen-tools.jpg'),
       },
     },
     {
@@ -49,12 +67,18 @@ export const state = () => ({
       Image: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
+      PageBanner: {
+        url: require('~/assets/img/banners/talen-tools.jpg'),
+      },
     },
     {
       id: 8,
       Name: 'Grond',
       Image: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
+      },
+      PageBanner: {
+        url: require('~/assets/img/banners/talen-tools.jpg'),
       },
     },
   ],

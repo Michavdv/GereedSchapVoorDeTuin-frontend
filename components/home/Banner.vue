@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <div class="flex-container banners">
       <img
         class="banner-large"
@@ -50,7 +50,6 @@
 
   .banner-small {
     width: 100%;
-    gap: 20px;
     flex-wrap: wrap;
     overflow: hidden;
     max-height: 15rem;
@@ -58,18 +57,18 @@
 
     .banner-small-part {
       width: 270px;
+      margin: 0 10px;
       height: 16rem;
       object-fit: cover;
     }
   }
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1260px) {
   .banners {
     .banner-large {
       margin-bottom: 0;
     }
-
     .banner-small {
       display: none;
     }

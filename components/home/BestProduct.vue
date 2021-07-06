@@ -3,7 +3,9 @@
     <h4 class="products-title">Best Verkocht</h4>
     <div class="products">
       <a
-        v-for="product in $store.state.product.list"
+        v-for="product in $store.state.product.list.filter(
+          (product) => product.id < 7
+        )"
         :key="product.Id"
         class="flex-container product"
       >
@@ -38,13 +40,13 @@
     overflow: hidden;
     max-height: 15rem;
     overflow-y: hidden;
-    gap: 10px;
     margin-bottom: 40px;
 
     .product {
       flex-direction: column;
       align-items: flex-start;
       max-width: 220px;
+      margin: 0 5px;
       margin-bottom: 20px;
       cursor: pointer;
       text-decoration: none;
