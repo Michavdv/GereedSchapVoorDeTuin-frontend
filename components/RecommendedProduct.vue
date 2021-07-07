@@ -1,12 +1,13 @@
 <template>
   <div class="product-part">
-    <h4 class="products-title">Best Verkocht</h4>
+    <h4 class="products-title">Aanbevolen voor jou</h4>
     <div class="products">
-      <a
+      <NuxtLink
         v-for="product in $store.state.product.list.filter(
           (product) => product.id < 7
         )"
         :key="product.Id"
+        :to="'/product/' + product.id"
         class="flex-container product"
       >
         <img
@@ -17,7 +18,7 @@
         />
         <p class="product-description">{{ product.Name }}</p>
         <span class="product-price">{{ product.Price }}</span>
-      </a>
+      </NuxtLink>
     </div>
   </div>
 </template>
@@ -28,6 +29,8 @@
   flex-direction: column;
   overflow: hidden;
   padding: 0 40px;
+  margin: 40px 0;
+  max-width: 1250px;
 
   .products-title {
     font-weight: bold;

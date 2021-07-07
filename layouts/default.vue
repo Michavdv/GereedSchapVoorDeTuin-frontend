@@ -1,7 +1,7 @@
 <template>
   <div class="container-page">
     <Header />
-    <Nuxt class="pages" />
+    <Nuxt />
   </div>
 </template>
 
@@ -35,11 +35,6 @@ html {
     align-items: center;
     justify-content: center;
     overflow-x: hidden;
-
-    .pages {
-      min-width: 18.25rem;
-      max-width: 78rem;
-    }
 
     .main {
       flex: 1;

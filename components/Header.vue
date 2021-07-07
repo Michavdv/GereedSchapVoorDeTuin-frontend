@@ -119,7 +119,6 @@ export default Vue.extend({
   // position: fixed;
   // z-index: 1000;
   padding: 0;
-  margin-bottom: 40px;
 
   .header-info {
     background-color: white;
@@ -252,8 +251,6 @@ export default Vue.extend({
 
 @media screen and (max-width: 900px) {
   .header {
-    margin: 0;
-
     .header-info {
       display: none;
     }

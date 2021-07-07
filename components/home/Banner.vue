@@ -40,8 +40,9 @@
 <style lang="scss">
 .banners {
   flex-direction: column;
-  margin-bottom: 40px;
+  margin: 40px auto;
   padding: 0 40px;
+  max-width: 1250px;
 
   .banner-large {
     width: 100%;
@@ -78,6 +79,7 @@
 @media screen and (max-width: 900px) {
   .banners {
     padding: 0;
+    margin: 0;
   }
 }
 </style>

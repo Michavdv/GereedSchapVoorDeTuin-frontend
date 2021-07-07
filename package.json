@@ -22,6 +22,7 @@
     "nuxt-fontawesome": "^0.4.0"
   },
   "devDependencies": {
+    "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@nuxt/types": "^2.15.3",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/eslint-config-typescript": "^6.0.0",

@@ -26,6 +26,7 @@
   flex-direction: column;
   overflow: hidden;
   padding: 0 40px;
+  max-width: 1250px;
 
   .categories-title {
     font-weight: bold;

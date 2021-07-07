@@ -16,11 +16,12 @@
     <h1 class="category-title">{{ categoryName }}</h1>
     <div class="product-part-category">
       <div class="products-category">
-        <a
+        <NuxtLink
           v-for="product in $store.state.product.list.filter(
             (product) => product.Tags[0] === categoryName
           )"
           :key="product.Id"
+          :to="'/product/' + product.id"
           class="flex-container product-category"
         >
           <img
@@ -31,7 +32,7 @@
           />
           <p class="product-description-category">{{ product.Name }}</p>
           <span class="product-price-category">{{ product.Price }}</span>
-        </a>
+        </NuxtLink>
       </div>
     </div>
   </div>
@@ -52,6 +53,8 @@ export default {
 <style lang="scss">
 .category-page {
   flex-direction: column;
+  margin-top: 40px;
+  max-width: 1250px;
 
   .banner-category {
     width: 1200px;
@@ -125,6 +128,8 @@ export default {
 
 @media screen and (max-width: 900px) {
   .category-page {
+    margin-top: 0;
+
     .banner-category {
       width: 100vw;
       height: 10rem;
