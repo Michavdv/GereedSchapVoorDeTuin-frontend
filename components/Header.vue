@@ -1,10 +1,10 @@
 <template>
   <div class="flex-container header">
-    <div class="flex-container header-info">
+    <!-- <div class="flex-container header-info">
       <a><strong>Gratis</strong> verzending vanaf 20,-</a>
       <a>Bezorging dezelfde dag, 's avonds of in het weekend*</a>
       <a><strong>Gratis</strong> retourneren</a>
-    </div>
+    </div> -->
     <div class="header-link">
       <div class="flex-container navbar">
         <div class="logobox">
@@ -134,7 +134,7 @@ export default Vue.extend({
 
   // The main class for the header
   .header-link {
-    background: #80ac75;
+    background: #009600;
     height: 80px;
     width: 100%;
 
@@ -228,14 +228,14 @@ export default Vue.extend({
       .category-header {
         font-weight: 500;
         margin: 0 10px;
-        color: #80ac75;
+        color: #009600;
         text-decoration: none;
         cursor: pointer;
         padding: 10px 0;
       }
 
       .category-header:hover {
-        border-bottom: 3px solid #80ac75;
+        border-bottom: 3px solid #009600;
       }
     }
 

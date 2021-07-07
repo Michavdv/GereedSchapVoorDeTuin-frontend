@@ -95,7 +95,7 @@ export default {
         }
 
         .product-description-category {
-          color: #80ac75;
+          color: #009600;
           font-weight: 500;
         }
 

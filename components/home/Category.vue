@@ -50,7 +50,7 @@
       }
 
       .category-name {
-        color: #80ac75;
+        color: #009600;
         font-size: 15px;
       }
     }
