@@ -4,7 +4,7 @@ export const state = () => ({
     {
       id: 1,
       Name: 'Scheppen',
-      Image: {
+      HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
       PageBanner: {
@@ -14,7 +14,7 @@ export const state = () => ({
     {
       id: 2,
       Name: 'Harken',
-      Image: {
+      HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
       PageBanner: {
@@ -24,7 +24,7 @@ export const state = () => ({
     {
       id: 3,
       Name: 'Schoffels',
-      Image: {
+      HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
       PageBanner: {
@@ -34,7 +34,7 @@ export const state = () => ({
     {
       id: 4,
       Name: 'Bezems',
-      Image: {
+      HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
       PageBanner: {
@@ -44,7 +44,7 @@ export const state = () => ({
     {
       id: 5,
       Name: 'Gras',
-      Image: {
+      HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
       PageBanner: {
@@ -54,7 +54,7 @@ export const state = () => ({
     {
       id: 6,
       Name: 'Onkruidkrabbers',
-      Image: {
+      HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
       PageBanner: {
@@ -64,7 +64,7 @@ export const state = () => ({
     {
       id: 7,
       Name: 'Tuinscharen',
-      Image: {
+      HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
       PageBanner: {
@@ -74,7 +74,7 @@ export const state = () => ({
     {
       id: 8,
       Name: 'Grond',
-      Image: {
+      HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
       PageBanner: {
@@ -86,7 +86,7 @@ export const state = () => ({
 
 export const mutations = {
   // The method which stores the given data into the state
-  set(state: any, list: []) {
+  setCategory(state: any, list: []) {
     if (list.length !== 0 && Array.isArray(list)) {
       state.list = list
     }

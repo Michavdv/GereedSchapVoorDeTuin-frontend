@@ -7,9 +7,17 @@
       :key="category.Id"
     >
       <img
+        v-if="category.PageBanner.url[1] !== '_'"
+        class="banner-category"
+        :src="'http://localhost:1337' + category.PageBanner.url"
+        alt="product"
+        loading="lazy"
+      />
+      <img
+        v-else
         class="banner-category"
         :src="category.PageBanner.url"
-        alt="Banner"
+        alt="product"
         loading="lazy"
       />
     </div>

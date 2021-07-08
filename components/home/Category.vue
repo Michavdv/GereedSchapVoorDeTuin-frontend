@@ -9,8 +9,16 @@
         class="flex-container category"
       >
         <img
+          v-if="category.HomeImage.url[1] !== '_'"
           class="category-image"
-          :src="category.Image.url"
+          :src="'http://localhost:1337' + category.HomeImage.url"
+          alt="product"
+          loading="lazy"
+        />
+        <img
+          v-else
+          class="category-image"
+          :src="category.HomeImage.url"
           alt="product"
           loading="lazy"
         />
