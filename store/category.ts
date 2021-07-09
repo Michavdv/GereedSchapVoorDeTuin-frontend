@@ -4,6 +4,7 @@ export const state = () => ({
     {
       id: 1,
       Name: 'Scheppen',
+      SubCategory: ['Groot', 'Klein', 'Stalen stelen', 'Houten stelen'],
       HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
@@ -14,6 +15,7 @@ export const state = () => ({
     {
       id: 2,
       Name: 'Harken',
+      SubCategory: ['Groot', 'Klein', 'Stalen stelen', 'Houten stelen'],
       HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
@@ -24,6 +26,7 @@ export const state = () => ({
     {
       id: 3,
       Name: 'Schoffels',
+      SubCategory: ['Groot', 'Klein', 'Stalen stelen', 'Houten stelen'],
       HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
@@ -34,6 +37,7 @@ export const state = () => ({
     {
       id: 4,
       Name: 'Bezems',
+      SubCategory: ['Groot', 'Klein', 'Stalen stelen', 'Houten stelen'],
       HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
@@ -44,6 +48,7 @@ export const state = () => ({
     {
       id: 5,
       Name: 'Gras',
+      SubCategory: ['Groot', 'Klein', 'Stalen stelen', 'Houten stelen'],
       HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
@@ -54,6 +59,7 @@ export const state = () => ({
     {
       id: 6,
       Name: 'Onkruidkrabbers',
+      SubCategory: ['Groot', 'Klein', 'Stalen stelen', 'Houten stelen'],
       HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
@@ -64,6 +70,7 @@ export const state = () => ({
     {
       id: 7,
       Name: 'Tuinscharen',
+      SubCategory: ['Groot', 'Klein', 'Stalen stelen', 'Houten stelen'],
       HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
@@ -74,6 +81,7 @@ export const state = () => ({
     {
       id: 8,
       Name: 'Grond',
+      SubCategory: ['Groot', 'Klein', 'Stalen stelen', 'Houten stelen'],
       HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },

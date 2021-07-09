@@ -51,14 +51,23 @@
       </div>
     </div>
     <div class="flex-container categories-header">
-      <div class="category-list">
-        <NuxtLink
-          v-for="category in $store.state.category.list"
-          :key="category.Id"
-          :to="'/' + category.Name"
-          class="category-header"
+      <div
+        v-for="category in $store.state.category.list"
+        :key="category.Id"
+        class="category-list"
+      >
+        <NuxtLink :to="'/' + category.Name" class="category-header"
           >{{ category.Name }}
         </NuxtLink>
+        <div class="flex-container sub-category-container">
+          <NuxtLink
+            v-for="n in category.SubCategory.length"
+            :key="n"
+            :to="'/' + category.Name + '/' + category.SubCategory[n - 1]"
+            class="sub-category"
+            >{{ category.SubCategory[n - 1] }}
+          </NuxtLink>
+        </div>
       </div>
       <div class="search-box-mobile">
         <input
@@ -221,9 +230,10 @@ export default Vue.extend({
     width: 100vw;
 
     .category-list {
-      padding: 12px 20px;
+      padding: 12px 0;
       list-style-type: none;
       justify-content: space-evenly;
+      border-bottom: 3px solid rgb(233, 241, 234);
 
       .category-header {
         font-weight: 500;
@@ -233,10 +243,36 @@ export default Vue.extend({
         cursor: pointer;
         padding: 10px 0;
       }
+    }
+    .category-list:hover {
+      border-bottom: 3px solid #009600;
 
-      .category-header:hover {
-        border-bottom: 3px solid #009600;
+      .sub-category-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        background-color: white;
+        padding: 10px 20px;
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+        margin-top: 15px;
+        min-width: 200px;
+
+        .sub-category {
+          text-decoration: none;
+          color: black;
+          padding: 5px;
+        }
+
+        .sub-category:hover {
+          color: #009600;
+          font-weight: 500;
+        }
       }
+    }
+
+    .sub-category-container {
+      display: none;
     }
 
     .search-box-mobile {

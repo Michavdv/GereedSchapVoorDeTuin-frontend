@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LazyCategoryProduct :category-name="slug" />
+    <LazyProductOverview :product-id="slug" />
   </div>
 </template>
 

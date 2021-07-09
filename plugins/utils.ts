@@ -5,6 +5,7 @@ export default ({ store, $config }: any, inject: any) => {
       .then()
       .then((res) => res.json())
     store.commit(state, data)
+    console.log(data)
     return true
   }
   inject('getData', getData)

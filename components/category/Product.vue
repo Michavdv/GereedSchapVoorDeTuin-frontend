@@ -33,13 +33,21 @@
           class="flex-container product-category"
         >
           <img
+            v-if="product.Image[0].url[1] !== '_'"
             class="product-image-category"
-            :src="product.Image.url"
-            :alt="product.Tags[0]"
+            :src="'http://localhost:1337' + product.Image[0].url"
+            alt="product"
+            loading="lazy"
+          />
+          <img
+            v-else
+            class="product-image-category"
+            :src="product.Image[0].url"
+            alt="product"
             loading="lazy"
           />
           <p class="product-description-category">{{ product.Name }}</p>
-          <span class="product-price-category">{{ product.Price }}</span>
+          <span class="product-price-category">{{ product.Price }},-</span>
         </NuxtLink>
       </div>
     </div>

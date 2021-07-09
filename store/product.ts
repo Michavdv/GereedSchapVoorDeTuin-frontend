@@ -9,9 +9,11 @@ export const state = () => ({
       Price: '25,-',
       Tags: ['Scheppen', '120', 'talen', 'tools'],
       Rating: 1.5,
-      Image: {
-        url: require('~/assets/img/products/schep.jpg'),
-      },
+      Image: [
+        {
+          url: require('~/assets/img/products/schep.jpg'),
+        },
+      ],
     },
     {
       id: 2,
@@ -21,9 +23,11 @@ export const state = () => ({
       Price: '25,-',
       Tags: ['Bezems', '120', 'talen', 'tools'],
       Rating: 4,
-      Image: {
-        url: require('~/assets/img/products/bezem.jpg'),
-      },
+      Image: [
+        {
+          url: require('~/assets/img/products/bezem.jpg'),
+        },
+      ],
     },
     {
       id: 3,
@@ -33,9 +37,11 @@ export const state = () => ({
       Price: '25,-',
       Tags: ['Harken', '120', 'talen', 'tools'],
       Rating: 5,
-      Image: {
-        url: require('~/assets/img/products/hark.jpg'),
-      },
+      Image: [
+        {
+          url: require('~/assets/img/products/hark.jpg'),
+        },
+      ],
     },
     {
       id: 4,
@@ -45,9 +51,11 @@ export const state = () => ({
       Price: '25,-',
       Tags: ['Onkruidkrabbers', '120', 'talen', 'tools'],
       Rating: 5,
-      Image: {
-        url: require('~/assets/img/products/voegen.jpg'),
-      },
+      Image: [
+        {
+          url: require('~/assets/img/products/voegen.jpg'),
+        },
+      ],
     },
     {
       id: 5,
@@ -57,9 +65,11 @@ export const state = () => ({
       Price: '25,-',
       Tags: ['Schoffels', '120', 'talen', 'tools'],
       Rating: 2,
-      Image: {
-        url: require('~/assets/img/products/schoffel.jpg'),
-      },
+      Image: [
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
+        },
+      ],
     },
     {
       id: 6,
@@ -69,9 +79,11 @@ export const state = () => ({
       Price: '25,-',
       Tags: ['Scheppen', '120', 'talen', 'tools'],
       Rating: 3,
-      Image: {
-        url: require('~/assets/img/products/schep.jpg'),
-      },
+      Image: [
+        {
+          url: require('~/assets/img/products/schep.jpg'),
+        },
+      ],
     },
     {
       id: 7,
@@ -81,9 +93,11 @@ export const state = () => ({
       Price: '25,-',
       Tags: ['Bezems', '120', 'talen', 'tools'],
       Rating: 1,
-      Image: {
-        url: require('~/assets/img/products/bezem.jpg'),
-      },
+      Image: [
+        {
+          url: require('~/assets/img/products/bezem.jpg'),
+        },
+      ],
     },
     {
       id: 8,
@@ -93,9 +107,11 @@ export const state = () => ({
       Price: '25,-',
       Tags: ['Harken', '120', 'talen', 'tools'],
       Rating: 3,
-      Image: {
-        url: require('~/assets/img/products/hark.jpg'),
-      },
+      Image: [
+        {
+          url: require('~/assets/img/products/hark.jpg'),
+        },
+      ],
     },
     {
       id: 9,
@@ -105,9 +121,11 @@ export const state = () => ({
       Price: '25,-',
       Tags: ['Onkruidkrabbers', '120', 'talen', 'tools'],
       Rating: 5,
-      Image: {
-        url: require('~/assets/img/products/voegen.jpg'),
-      },
+      Image: [
+        {
+          url: require('~/assets/img/products/voegen.jpg'),
+        },
+      ],
     },
     {
       id: 10,
@@ -117,16 +135,18 @@ export const state = () => ({
       Price: '25,-',
       Tags: ['Schoffels', '120', 'talen', 'tools'],
       Rating: 4,
-      Image: {
-        url: require('~/assets/img/products/schoffel.jpg'),
-      },
+      Image: [
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
+        },
+      ],
     },
   ],
 })
 
 export const mutations = {
   // The method which stores the given data into the state
-  set(state: any, list: []) {
+  setProduct(state: any, list: []) {
     if (list.length !== 0 && Array.isArray(list)) {
       state.list = list
     }

@@ -15,14 +15,23 @@
         <div class="flex-container overview-images">
           <button class="image-button image-button-left">❮</button>
           <img
+            v-if="product.Image[0].url[1] !== '_'"
             class="overview-image"
-            :src="product.Image.url"
-            :alt="product.Name"
+            :src="'http://localhost:1337' + product.Image[0].url"
+            alt="product"
+            loading="lazy"
+          />
+          <img
+            v-else
+            class="overview-image"
+            :src="product.Image[0].url"
+            alt="product"
+            loading="lazy"
           />
           <button class="image-button image-button-right">❯</button>
         </div>
         <div class="flex-container overview-options">
-          <span class="overview-price">{{ product.Price }}</span>
+          <span class="overview-price">{{ product.Price }},-</span>
           <button class="shoppingcart">
             <font-awesome-icon
               class="cart-icon"
