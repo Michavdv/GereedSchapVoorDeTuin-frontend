@@ -48,6 +48,13 @@
           />
           <p class="product-description-category">{{ product.Name }}</p>
           <span class="product-price-category">{{ product.Price }},-</span>
+          <button class="product-watch">
+            <font-awesome-icon
+              class="cart-icon"
+              :icon="['fas', 'cart-arrow-down']"
+            />
+            Bekijk & Bestel
+          </button>
         </NuxtLink>
       </div>
     </div>
@@ -99,7 +106,8 @@ export default {
         flex-direction: column;
         align-items: flex-start;
         max-width: 220px;
-        margin: 0 5px;
+        margin: 5px;
+        padding: 10px;
         margin-bottom: 20px;
         cursor: pointer;
         text-decoration: none;
@@ -122,8 +130,30 @@ export default {
         .product-price-category {
           font-weight: bold;
           color: black;
+          margin-bottom: 10px;
+        }
+
+        .product-watch {
+          background-color: #007eb9;
+          color: white;
+          border: 0;
+          border-radius: 3px;
+          padding: 5px 20px;
+          width: 100%;
+
+          .cart-icon {
+            margin-right: 7px;
+          }
+        }
+
+        .product-watch:hover {
+          background-color: #016594;
         }
       }
+    }
+
+    .product-category:hover {
+      box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
     }
   }
 }

@@ -6,12 +6,18 @@ export const state = () => ({
       Name: 'Talen Tools - Schep - Steel 120 cm',
       Description:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-      Price: '25,-',
+      Price: '25',
       Tags: ['Scheppen', '120', 'talen', 'tools'],
       Rating: 1.5,
       Image: [
         {
           url: require('~/assets/img/products/schep.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
         },
       ],
     },
@@ -20,12 +26,18 @@ export const state = () => ({
       Name: 'Talen Tools - Bezem - Steel 120 cm',
       Description:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-      Price: '25,-',
+      Price: '25',
       Tags: ['Bezems', '120', 'talen', 'tools'],
       Rating: 4,
       Image: [
         {
           url: require('~/assets/img/products/bezem.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
         },
       ],
     },
@@ -34,12 +46,18 @@ export const state = () => ({
       Name: 'Talen Tools - Bladhark - Steel 120 cm',
       Description:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-      Price: '25,-',
+      Price: '25',
       Tags: ['Harken', '120', 'talen', 'tools'],
       Rating: 5,
       Image: [
         {
           url: require('~/assets/img/products/hark.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
         },
       ],
     },
@@ -48,12 +66,18 @@ export const state = () => ({
       Name: 'Talen Tools - Voegenkrabber - Steel 120 cm',
       Description:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-      Price: '25,-',
+      Price: '25',
       Tags: ['Onkruidkrabbers', '120', 'talen', 'tools'],
       Rating: 5,
       Image: [
         {
           url: require('~/assets/img/products/voegen.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
         },
       ],
     },
@@ -62,10 +86,16 @@ export const state = () => ({
       Name: 'Talen Tools - Schoffel - Steel 120 cm',
       Description:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-      Price: '25,-',
+      Price: '25',
       Tags: ['Schoffels', '120', 'talen', 'tools'],
       Rating: 2,
       Image: [
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
+        },
         {
           url: require('~/assets/img/products/schoffel.jpg'),
         },
@@ -76,12 +106,18 @@ export const state = () => ({
       Name: 'Talen Tools - Schep - Steel 120 cm',
       Description:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-      Price: '25,-',
+      Price: '25',
       Tags: ['Scheppen', '120', 'talen', 'tools'],
       Rating: 3,
       Image: [
         {
           url: require('~/assets/img/products/schep.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
         },
       ],
     },
@@ -90,12 +126,18 @@ export const state = () => ({
       Name: 'Talen Tools - Bezem - Steel 120 cm',
       Description:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-      Price: '25,-',
+      Price: '25',
       Tags: ['Bezems', '120', 'talen', 'tools'],
       Rating: 1,
       Image: [
         {
           url: require('~/assets/img/products/bezem.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
         },
       ],
     },
@@ -104,12 +146,18 @@ export const state = () => ({
       Name: 'Talen Tools - Bladhark - Steel 120 cm',
       Description:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-      Price: '25,-',
+      Price: '25',
       Tags: ['Harken', '120', 'talen', 'tools'],
       Rating: 3,
       Image: [
         {
           url: require('~/assets/img/products/hark.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
         },
       ],
     },
@@ -118,12 +166,18 @@ export const state = () => ({
       Name: 'Talen Tools - Voegenkrabber - Steel 120 cm',
       Description:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-      Price: '25,-',
+      Price: '25',
       Tags: ['Onkruidkrabbers', '120', 'talen', 'tools'],
       Rating: 5,
       Image: [
         {
           url: require('~/assets/img/products/voegen.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
         },
       ],
     },
@@ -132,10 +186,16 @@ export const state = () => ({
       Name: 'Talen Tools - Schoffel - Steel 120 cm',
       Description:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
-      Price: '25,-',
+      Price: '25',
       Tags: ['Schoffels', '120', 'talen', 'tools'],
       Rating: 4,
       Image: [
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
+        },
+        {
+          url: require('~/assets/img/products/schoffel.jpg'),
+        },
         {
           url: require('~/assets/img/products/schoffel.jpg'),
         },

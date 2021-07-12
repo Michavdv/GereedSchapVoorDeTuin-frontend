@@ -13,6 +13,7 @@ export default {
     try {
       await $getData('product/setProduct', 'products')
       await $getData('category/setCategory', 'categories')
+      await $getData('home/setBanner', 'home-banner')
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error(e)

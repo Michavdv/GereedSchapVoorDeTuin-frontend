@@ -2,36 +2,41 @@
   <div>
     <div class="flex-container banners">
       <img
+        v-if="$store.state.home.banners.LargeBanner.url[1] !== '_'"
         class="banner-large"
-        src="~/assets/img/banners/talen-tools.jpg"
+        :src="
+          'http://localhost:1337' + $store.state.home.banners.LargeBanner.url
+        "
+        alt="Banner"
+        loading="lazy"
+      />
+      <img
+        v-else
+        class="banner-large"
+        :src="$store.state.home.banners.LargeBanner.url"
         alt="Banner"
         loading="lazy"
       />
       <div class="flex-container banner-small">
-        <img
-          class="banner-small-part"
-          src="~/assets/img/banners/snoeischaar.jpg"
-          alt="Banner"
-          loading="lazy"
-        />
-        <img
-          class="banner-small-part"
-          src="~/assets/img/banners/werk.jpg"
-          alt="Banner"
-          loading="lazy"
-        />
-        <img
-          class="banner-small-part"
-          src="~/assets/img/banners/samen.jpg"
-          alt="Banner"
-          loading="lazy"
-        />
-        <img
-          class="banner-small-part"
-          src="~/assets/img/banners/schepje.jpg"
-          alt="Banner"
-          loading="lazy"
-        />
+        <div v-for="n in $store.state.home.banners.SmallBanner.length" :key="n">
+          <img
+            v-if="$store.state.home.banners.SmallBanner[n - 1].url[1] !== '_'"
+            class="banner-small-part"
+            :src="
+              'http://localhost:1337' +
+              $store.state.home.banners.SmallBanner[n - 1].url
+            "
+            alt="Banner"
+            loading="lazy"
+          />
+          <img
+            v-else
+            class="banner-small-part"
+            :src="$store.state.home.banners.SmallBanner[n - 1].url"
+            alt="Banner"
+            loading="lazy"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -51,7 +56,6 @@
 
   .banner-small {
     width: 100%;
-    flex-wrap: wrap;
     overflow: hidden;
     max-height: 15rem;
     overflow-y: hidden;
@@ -65,7 +69,7 @@
   }
 }
 
-@media screen and (max-width: 1260px) {
+@media screen and (max-width: 1400px) {
   .banners {
     .banner-large {
       margin-bottom: 0;
