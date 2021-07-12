@@ -57,47 +57,61 @@
           </VueSlickCarousel>
         </div>
         <div class="flex-container overview-options">
-          <div>
-            <span class="overview-price">{{ product.Price }},-</span>
-            <div class="flex-container">
-              <input type="number" class="overview-quantity" value="1" />
-              <button class="shoppingcart">
-                <font-awesome-icon
-                  class="cart-icon"
-                  :icon="['fas', 'cart-arrow-down']"
-                />
-                In mijn winkelwagen
-              </button>
-            </div>
-            <button class="liked-products">
-              <font-awesome-icon class="heart-icon" :icon="['far', 'heart']" />
-              Bewaar
+          <div class="flex-container overview-types">
+            <button
+              v-for="n in product.Type.length"
+              :key="n"
+              class="overview-type"
+            >
+              {{ product.Type[n - 1] }}
             </button>
           </div>
-          <div class="flex-container shipping-info">
-            <div>
-              <font-awesome-icon
-                class="shipping-icon"
-                :icon="['fas', 'check']"
-              />
-              <a>Klantbeoordeling <strong>9,2/10</strong></a>
+          <div class="flex-container overview-under-types">
+            <div class="overview-buy-info">
+              <span class="overview-price">{{ product.Price }},-</span>
+              <div class="flex-container">
+                <input type="number" class="overview-quantity" value="1" />
+                <button class="shoppingcart">
+                  <font-awesome-icon
+                    class="cart-icon"
+                    :icon="['fas', 'cart-arrow-down']"
+                  />
+                  In mijn winkelwagen
+                </button>
+              </div>
+              <button class="liked-products">
+                <font-awesome-icon
+                  class="heart-icon"
+                  :icon="['far', 'heart']"
+                />
+                Bewaar
+              </button>
             </div>
-            <div>
-              <font-awesome-icon
-                class="shipping-icon"
-                :icon="['fas', 'check']"
-              />
-              <a
-                >Bezorging <strong>'s avonds</strong> of in het
-                <strong>weekend</strong></a
-              >
-            </div>
-            <div>
-              <font-awesome-icon
-                class="shipping-icon"
-                :icon="['fas', 'check']"
-              />
-              <a><strong>Gratis</strong> te retourneren</a>
+            <div class="flex-container shipping-info">
+              <div>
+                <font-awesome-icon
+                  class="shipping-icon"
+                  :icon="['fas', 'check']"
+                />
+                <a>Klantbeoordeling <strong>9,2/10</strong></a>
+              </div>
+              <div>
+                <font-awesome-icon
+                  class="shipping-icon"
+                  :icon="['fas', 'check']"
+                />
+                <a
+                  >Bezorging <strong>'s avonds</strong> of in het
+                  <strong>weekend</strong></a
+                >
+              </div>
+              <div>
+                <font-awesome-icon
+                  class="shipping-icon"
+                  :icon="['fas', 'check']"
+                />
+                <a><strong>Gratis</strong> te retourneren</a>
+              </div>
             </div>
           </div>
         </div>
@@ -267,72 +281,100 @@ export default {
         padding: 0 20px 0 60px;
         margin-bottom: 40px;
 
-        .overview-price {
-          font-size: 20px;
-          font-weight: 800;
-          margin-bottom: 20px;
-        }
-
-        input[type='number']::-webkit-inner-spin-button,
-        input[type='number']::-webkit-outer-spin-button {
-          opacity: 1;
-        }
-
-        .overview-quantity {
-          width: 50px;
-          height: 40px;
-          margin: 0px 10px 10px 0;
-          padding-left: 10px;
-          border: 1px solid rgba(0, 0, 0, 0.3);
-          border-radius: 3px;
-        }
-
-        .shoppingcart {
-          background-color: #00b900;
-          color: white;
-          border: 0;
-          border-radius: 5px;
-          padding: 10px 20px;
+        .overview-types {
           margin-bottom: 10px;
+          flex-flow: wrap;
+          justify-content: flex-start;
 
-          .cart-icon {
-            margin-right: 7px;
+          .overview-type {
+            padding: 7px 14px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 6px;
+            background-color: white;
+            color: rgba(0, 0, 0, 0.8);
+            margin: 5px 10px 5px 0;
+          }
+
+          .overview-type:hover {
+            border: 1px solid rgba(0, 0, 0, 0.4);
+          }
+
+          .overview-type:focus {
+            border: 2px solid #00b900;
+            background-color: rgba(68, 190, 11, 0.2);
           }
         }
 
-        .shoppingcart:hover {
-          background-color: #038303;
-        }
-
-        .liked-products {
-          background-color: white;
-          color: #00b900;
-          border: 0;
-          box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
-          border-radius: 5px;
-          padding: 8px 16px;
-          margin-bottom: 20px;
-
-          .heart-icon {
-            margin-right: 7px;
-          }
-        }
-
-        .liked-products:hover {
-          box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
-        }
-
-        .shipping-info {
+        .overview-under-types {
           flex-direction: column;
-          align-items: flex-start;
-          font-size: 15px;
 
-          .shipping-icon {
-            color: #00b900;
+          .overview-price {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 20px;
           }
 
-          strong {
-            color: #ee9847;
+          input[type='number']::-webkit-inner-spin-button,
+          input[type='number']::-webkit-outer-spin-button {
+            opacity: 1;
+          }
+
+          .overview-quantity {
+            width: 50px;
+            height: 40px;
+            margin: 0px 10px 10px 0;
+            padding-left: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: 3px;
+          }
+
+          .shoppingcart {
+            background-color: #00b900;
+            color: white;
+            border: 0;
+            border-radius: 5px;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+
+            .cart-icon {
+              margin-right: 7px;
+            }
+          }
+
+          .shoppingcart:hover {
+            background-color: #038303;
+          }
+
+          .liked-products {
+            background-color: white;
+            color: #00b900;
+            border: 0;
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            padding: 8px 16px;
+            margin-bottom: 20px;
+
+            .heart-icon {
+              margin-right: 7px;
+            }
+          }
+
+          .liked-products:hover {
+            box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
+          }
+
+          .shipping-info {
+            flex-direction: column;
+            align-items: flex-start;
+            font-size: 15px;
+
+            .shipping-icon {
+              color: #00b900;
+            }
+
+            strong {
+              color: #ee9847;
+            }
           }
         }
       }
@@ -406,11 +448,18 @@ export default {
         }
 
         .overview-options {
-          flex-direction: row;
+          flex-direction: column;
           justify-content: space-around;
           align-items: center;
           width: 90%;
           padding: 0 40px;
+
+          .overview-under-types {
+            flex-direction: row;
+            .overview-buy-info {
+              margin-right: 40px;
+            }
+          }
         }
       }
 
@@ -479,6 +528,18 @@ export default {
         .overview-options {
           flex-direction: column;
           width: 80%;
+
+          .overview-types {
+            justify-content: center;
+          }
+
+          .overview-under-types {
+            flex-direction: column;
+
+            .overview-buy-info {
+              margin-right: 0;
+            }
+          }
         }
       }
 
@@ -518,8 +579,14 @@ export default {
       .overview-info {
         .overview-options {
           padding: 0 30px;
-          .shoppingcart {
-            padding: 10px 12px;
+          .overview-under-types {
+            flex-direction: column;
+
+            .overview-buy-info {
+              .shoppingcart {
+                padding: 10px 10px;
+              }
+            }
           }
         }
       }
