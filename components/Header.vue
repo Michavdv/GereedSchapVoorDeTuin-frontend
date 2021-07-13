@@ -59,7 +59,10 @@
         <NuxtLink :to="'/' + category.Name" class="category-header"
           >{{ category.Name }}
         </NuxtLink>
-        <div class="flex-container sub-category-container">
+        <div
+          v-if="category.SubCategory !== null"
+          class="flex-container sub-category-container"
+        >
           <NuxtLink
             v-for="n in category.SubCategory.length"
             :key="n"
@@ -228,9 +231,11 @@ export default Vue.extend({
   .categories-header {
     background-color: rgb(233, 241, 234);
     width: 100vw;
+    flex-flow: wrap;
+    padding: 12px 20px 0 20px;
 
     .category-list {
-      padding: 12px 0;
+      padding: 2px 0 12px 0;
       list-style-type: none;
       justify-content: space-evenly;
       border-bottom: 3px solid rgb(233, 241, 234);
@@ -256,7 +261,8 @@ export default Vue.extend({
         padding: 10px 20px;
         box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.4);
         margin-top: 15px;
-        min-width: 200px;
+        min-width: 250px;
+        z-index: 1000;
 
         .sub-category {
           text-decoration: none;
@@ -324,6 +330,7 @@ export default Vue.extend({
     }
 
     .categories-header {
+      padding: 6px 0;
       .category-list {
         display: none;
       }
@@ -367,7 +374,7 @@ export default Vue.extend({
 
       .category-list-mobile {
         flex-direction: column;
-        padding-top: 10px;
+        padding: 10px 0 20px 0;
         // A navbar link
         .category-header-mobile {
           font-size: 25px;
@@ -426,14 +433,14 @@ export default Vue.extend({
         height: 0;
       }
       to {
-        height: 500px;
+        height: 700px;
       }
     }
 
     // The animation for closing the navbar
     @keyframes closeNav {
       from {
-        height: 500px;
+        height: 700px;
       }
       to {
         height: 0;

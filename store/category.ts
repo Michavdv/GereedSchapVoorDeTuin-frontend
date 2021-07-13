@@ -3,8 +3,14 @@ export const state = () => ({
   list: [
     {
       id: 1,
-      Name: 'Scheppen',
-      SubCategory: ['Groot', 'Klein', 'Stalen stelen', 'Houten stelen'],
+      Name: 'Schoppen',
+      SubCategory: [
+        'Batsen',
+        'Stalschoppen',
+        'Balastschoppen',
+        'Betonschoppen',
+        'Spaden',
+      ],
       HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
@@ -14,8 +20,19 @@ export const state = () => ({
     },
     {
       id: 2,
-      Name: 'Harken',
-      SubCategory: ['Groot', 'Klein', 'Stalen stelen', 'Houten stelen'],
+      Name: 'Werkhandschoenen',
+      SubCategory: [
+        'Katoen',
+        'PVC',
+        'Geitenleer',
+        'Varkensleer',
+        'Runderleer',
+        'Nylon',
+        'Polyester',
+        'Acryl',
+        'HPPE vezel',
+        'Micro fiber',
+      ],
       HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
@@ -25,8 +42,23 @@ export const state = () => ({
     },
     {
       id: 3,
-      Name: 'Schoffels',
-      SubCategory: ['Groot', 'Klein', 'Stalen stelen', 'Houten stelen'],
+      Name: 'Tuingereedschap',
+      SubCategory: [
+        'Tuinafvalzakken',
+        'Onkruidborstels -messen',
+        'Schoffels',
+        'Harken',
+        'Hakken',
+        'Gereedschapshouders',
+        'Grondboren',
+        'Cultivatoren',
+        'Kantafstekers',
+        'Zwerfvuilgrijpers',
+        'Tuinknielkussens',
+        'Dekzeilen',
+        'Kruiwagens',
+        'Overige',
+      ],
       HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
@@ -36,8 +68,15 @@ export const state = () => ({
     },
     {
       id: 4,
-      Name: 'Bezems',
-      SubCategory: ['Groot', 'Klein', 'Stalen stelen', 'Houten stelen'],
+      Name: 'Bezems en borstels',
+      SubCategory: [
+        'Bezems',
+        'Stoffer en blikken',
+        'Vloertrekkers',
+        'Borstels',
+        'Voetenvegers',
+        'Overige',
+      ],
       HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
@@ -47,8 +86,8 @@ export const state = () => ({
     },
     {
       id: 5,
-      Name: 'Gras',
-      SubCategory: ['Groot', 'Klein', 'Stalen stelen', 'Houten stelen'],
+      Name: 'Landbouw',
+      SubCategory: ['Vorken', 'Stalschuivers', 'Zeisen', 'Harken', 'Overige'],
       HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
@@ -58,8 +97,17 @@ export const state = () => ({
     },
     {
       id: 6,
-      Name: 'Onkruidkrabbers',
-      SubCategory: ['Groot', 'Klein', 'Stalen stelen', 'Houten stelen'],
+      Name: 'Bouw',
+      SubCategory: [
+        'Emmers',
+        'Kniebeschermers',
+        'Hamers',
+        'Betonschrapers',
+        'Asfaltharken',
+        'Waterpassen',
+        'Metselgereedschap',
+        'Overige',
+      ],
       HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
@@ -69,8 +117,8 @@ export const state = () => ({
     },
     {
       id: 7,
-      Name: 'Tuinscharen',
-      SubCategory: ['Groot', 'Klein', 'Stalen stelen', 'Houten stelen'],
+      Name: 'Bijlen',
+      SubCategory: null,
       HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },
@@ -80,8 +128,80 @@ export const state = () => ({
     },
     {
       id: 8,
-      Name: 'Grond',
-      SubCategory: ['Groot', 'Klein', 'Stalen stelen', 'Houten stelen'],
+      Name: 'Snoeigereedschap',
+      SubCategory: [
+        'Snoeischaren',
+        'Snoeizagen',
+        'Grasscharen',
+        'Takkenscharen',
+        'Heggenscharen',
+        'Overige',
+      ],
+      HomeImage: {
+        url: require('~/assets/img/categories/schep-icon.jpg'),
+      },
+      PageBanner: {
+        url: require('~/assets/img/banners/talen-tools.jpg'),
+      },
+    },
+    {
+      id: 9,
+      Name: 'Stelen',
+      SubCategory: [
+        'Schop of bats',
+        'Bijl of hamer',
+        'Vork',
+        'Sloothaak',
+        'Vijlheft',
+        'Hark of bezem',
+        'Stalschuiver',
+        'Spade',
+        'Raagbol',
+        'Hak',
+        'Sneeuwruimer',
+        'Schoffel',
+        'Handvatten',
+        'Overige',
+      ],
+      HomeImage: {
+        url: require('~/assets/img/categories/schep-icon.jpg'),
+      },
+      PageBanner: {
+        url: require('~/assets/img/banners/talen-tools.jpg'),
+      },
+    },
+    {
+      id: 10,
+      Name: 'Waterassortiment',
+      SubCategory: [
+        'Haspels',
+        'Gieters',
+        'Koppelingen',
+        'Sproeiers en spuiten',
+        'Slangen',
+        'Overige',
+      ],
+      HomeImage: {
+        url: require('~/assets/img/categories/schep-icon.jpg'),
+      },
+      PageBanner: {
+        url: require('~/assets/img/banners/talen-tools.jpg'),
+      },
+    },
+    {
+      id: 11,
+      Name: 'Bindartikelen',
+      SubCategory: [
+        'Bindraad - touw -band',
+        'Plantenstokken -steun',
+        'Boomband',
+        'Moestuinbenodigdheden',
+        'Plantenklemmen',
+        'Plantenlabels',
+        'Spandraad',
+        'Grasrand',
+        'Muurhaak',
+      ],
       HomeImage: {
         url: require('~/assets/img/categories/schep-icon.jpg'),
       },

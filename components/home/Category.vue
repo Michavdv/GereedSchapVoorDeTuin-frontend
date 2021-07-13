@@ -41,7 +41,7 @@
   }
 
   .categories {
-    justify-content: space-between;
+    justify-content: center;
     flex-flow: wrap;
     margin-bottom: 40px;
 
@@ -49,7 +49,7 @@
       flex-direction: column;
       align-items: center;
       max-width: 150px;
-      margin: 0 5px;
+      margin: 0 20px;
       margin-bottom: 20px;
       cursor: pointer;
 

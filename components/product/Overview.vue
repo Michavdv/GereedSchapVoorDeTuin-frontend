@@ -247,6 +247,7 @@ export default {
             box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.2);
             margin: 0 5px;
             z-index: 999;
+            cursor: pointer;
           }
 
           .image-button:nth-of-type(1) {
@@ -269,6 +270,7 @@ export default {
               width: 70px;
               height: 70px;
               object-fit: contain;
+              cursor: pointer;
             }
           }
         }

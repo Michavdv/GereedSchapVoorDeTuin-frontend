@@ -24,7 +24,7 @@
           alt="product"
           loading="lazy"
         />
-        <p class="product-description">{{ product.Name }}</p>
+        <p class="product-name">{{ product.Name }}</p>
         <span class="product-price">{{ product.Price }},-</span>
         <button class="product-watch">
           <font-awesome-icon
@@ -75,12 +75,17 @@
         margin-bottom: 10px;
       }
 
-      .product-description {
+      .product-name {
         color: #009600;
         font-weight: 500;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* number of lines to show */
+        -webkit-box-orient: vertical;
       }
 
-      .product-description:hover {
+      .product-name:hover {
         text-decoration: underline;
       }
 

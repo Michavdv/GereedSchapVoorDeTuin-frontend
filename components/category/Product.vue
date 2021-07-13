@@ -26,7 +26,7 @@
       <div class="products-category">
         <NuxtLink
           v-for="product in $store.state.product.list.filter(
-            (product) => product.Tags[0] === categoryName
+            (product) => product.category.Name === categoryName
           )"
           :key="product.Id"
           :to="'/product/' + product.id"
@@ -46,7 +46,7 @@
             alt="product"
             loading="lazy"
           />
-          <p class="product-description-category">{{ product.Name }}</p>
+          <p class="product-name-category">{{ product.Name }}</p>
           <span class="product-price-category">{{ product.Price }},-</span>
           <button class="product-watch">
             <font-awesome-icon
@@ -88,6 +88,7 @@ export default {
 
   .category-title {
     margin-bottom: 40px;
+    font-size: 30px;
   }
 
   .product-part-category {
@@ -118,12 +119,17 @@ export default {
           margin-bottom: 10px;
         }
 
-        .product-description-category {
+        .product-name-category {
           color: #009600;
           font-weight: 500;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 2; /* number of lines to show */
+          -webkit-box-orient: vertical;
         }
 
-        .product-description-category:hover {
+        .product-name-category:hover {
           text-decoration: underline;
         }
 
