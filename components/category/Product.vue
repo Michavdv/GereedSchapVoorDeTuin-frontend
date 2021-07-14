@@ -47,7 +47,7 @@
             loading="lazy"
           />
           <p class="product-name-category">{{ product.Name }}</p>
-          <span class="product-price-category">{{ product.Price }},-</span>
+          <span class="product-price-category">€{{ product.Price }}</span>
           <button class="product-watch">
             <font-awesome-icon
               class="cart-icon"

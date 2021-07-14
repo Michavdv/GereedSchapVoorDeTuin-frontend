@@ -25,7 +25,7 @@
           loading="lazy"
         />
         <p class="product-name">{{ product.Name }}</p>
-        <span class="product-price">{{ product.Price }},-</span>
+        <span class="product-price">€{{ product.Price }}</span>
         <button class="product-watch">
           <font-awesome-icon
             class="cart-icon"

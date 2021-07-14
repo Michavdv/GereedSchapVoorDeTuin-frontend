@@ -3,7 +3,7 @@
     <div v-for="n in parseInt(rating)" :key="n">
       <font-awesome-icon class="star-icon" :icon="['fas', 'star']" />
     </div>
-    <div v-for="m in 5 - parseInt(rating)" :key="m">
+    <div v-for="m in 5 - parseInt(rating)" :key="m + 5">
       <font-awesome-icon class="star-icon" :icon="['far', 'star']" />
     </div>
     <span class="overview-score"> {{ rating }}/5 (10 reviews)</span>
@@ -15,8 +15,8 @@ export default {
   props: {
     // Stores the string recieved from the Teams component in 'team'
     rating: {
-      type: String,
-      default: '',
+      type: Number,
+      default: 0,
     },
   },
 }
