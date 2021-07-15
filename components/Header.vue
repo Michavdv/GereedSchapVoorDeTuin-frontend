@@ -31,9 +31,11 @@
         </div>
         <div class="search-box">
           <input
+            v-model="search"
             placeholder="Waar ben je naar opzoek?"
             class="searchbar"
             type="text"
+            @click="searchClick()"
           />
         </div>
         <nav class="flex-container icons">
@@ -49,6 +51,15 @@
           /></NuxtLink>
         </nav>
       </div>
+    </div>
+    <div id="searchbar" class="searchbar-container" @click="searchLinkClick()">
+      <NuxtLink
+        v-for="product in filteredList"
+        :key="product.id"
+        :to="'/product/' + product.id"
+        class="search-items"
+        >{{ product.Name }}
+      </NuxtLink>
     </div>
     <div class="flex-container categories-header">
       <div
@@ -74,9 +85,11 @@
       </div>
       <div class="search-box-mobile">
         <input
+          v-model="search"
           placeholder="Waar ben je naar opzoek?"
           class="searchbar"
           type="text"
+          @click="searchClick()"
         />
       </div>
     </div>
@@ -105,12 +118,32 @@
 <script>
 import Vue from 'vue'
 
+window.addEventListener('mouseup', function (event) {
+  const pol = document.querySelector('.searchbar-container')
+  if (event.target !== pol && event.target.parentNode !== pol) {
+    pol.style.display = 'none'
+  }
+})
+
 export default Vue.extend({
   data() {
     // The default values for the mobile navbar
     return {
       menuOpen: false,
+      search: '',
     }
+  },
+  computed: {
+    filteredList() {
+      let count = 0
+      const data = this.$store.state.product.list.filter((product) => {
+        return (
+          product.Name.toLowerCase().includes(this.search.toLowerCase()) &&
+          count++ < 10
+        )
+      })
+      return data
+    },
   },
   methods: {
     // Method for opening and closing the navbar on mobile
@@ -120,6 +153,14 @@ export default Vue.extend({
       } else {
         this.menuOpen = true
       }
+    },
+    searchClick() {
+      const x = document.querySelector('.searchbar-container')
+      x.style.display = 'flex'
+    },
+    searchLinkClick() {
+      const x = document.querySelector('.searchbar-container')
+      x.style.display = 'none'
     },
   },
 })
@@ -228,6 +269,32 @@ export default Vue.extend({
     }
   }
 
+  .searchbar-container {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    background-color: white;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+    top: 67px;
+    margin-right: 30px;
+    max-width: 39rem;
+    width: 100%;
+    z-index: 1001;
+
+    .search-items {
+      padding: 5px 10px;
+      text-decoration: none;
+      color: black;
+    }
+
+    .search-items:hover {
+      color: #009600;
+      font-weight: 500;
+    }
+  }
+
   .categories-header {
     background-color: rgb(233, 241, 234);
     width: 100vw;
@@ -291,6 +358,14 @@ export default Vue.extend({
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .header {
+    .searchbar-container {
+      width: 38%;
+    }
+  }
+}
+
 @media screen and (max-width: 900px) {
   .header {
     .header-info {
@@ -327,6 +402,13 @@ export default Vue.extend({
           }
         }
       }
+    }
+
+    .searchbar-container {
+      top: 145px;
+      max-width: 40rem;
+      width: 85%;
+      margin: 0;
     }
 
     .categories-header {
