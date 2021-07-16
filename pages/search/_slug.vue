@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LazyCategoryList :category-name="slug" />
+    <LazyHeaderSearchList :product-name="slug" />
   </div>
 </template>
 
@@ -9,7 +9,6 @@ export default {
   async asyncData({ params, $getData }) {
     try {
       await $getData('product/setProduct', 'products')
-      await $getData('category/setCategory', 'categories')
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error(e)

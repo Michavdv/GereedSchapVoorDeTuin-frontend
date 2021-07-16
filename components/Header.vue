@@ -31,10 +31,11 @@
         </div>
         <div class="search-box">
           <input
+            id="searchbar"
             v-model="search"
             placeholder="Waar ben je naar opzoek?"
             class="searchbar"
-            type="text"
+            type="search"
             @click="searchClick()"
           />
         </div>
@@ -52,7 +53,7 @@
         </nav>
       </div>
     </div>
-    <div id="searchbar" class="searchbar-container" @click="searchLinkClick()">
+    <div class="searchbar-container" @click="searchLinkClick()">
       <NuxtLink
         v-for="product in filteredList"
         :key="product.id"
@@ -85,10 +86,11 @@
       </div>
       <div class="search-box-mobile">
         <input
+          id="searchbar"
           v-model="search"
           placeholder="Waar ben je naar opzoek?"
           class="searchbar"
-          type="text"
+          type="search"
           @click="searchClick()"
         />
       </div>
@@ -118,13 +120,6 @@
 <script>
 import Vue from 'vue'
 
-window.addEventListener('mouseup', function (event) {
-  const pol = document.querySelector('.searchbar-container')
-  if (event.target !== pol && event.target.parentNode !== pol) {
-    pol.style.display = 'none'
-  }
-})
-
 export default Vue.extend({
   data() {
     // The default values for the mobile navbar
@@ -136,14 +131,25 @@ export default Vue.extend({
   computed: {
     filteredList() {
       let count = 0
-      const data = this.$store.state.product.list.filter((product) => {
+      return this.$store.state.product.list.filter((product) => {
         return (
           product.Name.toLowerCase().includes(this.search.toLowerCase()) &&
           count++ < 10
         )
       })
-      return data
     },
+  },
+  beforeMount() {
+    window.addEventListener('mouseup', function (event) {
+      const pol = document.querySelector('.searchbar-container')
+      if (event.target !== pol && event.target.parentNode !== pol) {
+        pol.style.display = 'none'
+      }
+    })
+    window.addEventListener('search', function () {
+      window.location.href =
+        '/search/' + document.getElementById('searchbar').value
+    })
   },
   methods: {
     // Method for opening and closing the navbar on mobile
@@ -234,7 +240,7 @@ export default Vue.extend({
         .searchbar {
           width: 100%;
           height: 3rem;
-          padding-left: 1.5rem;
+          padding: 0 1.5rem;
           cursor: text;
           border-radius: 15px;
           border: 0px;

@@ -1,45 +1,35 @@
 <template>
-  <div class="product-part">
+  <div class="products-part">
     <h4 class="products-title">Aanbevolen voor jou</h4>
+    <NuxtLink to="/products">Bekijk alle producten>></NuxtLink>
     <div class="products">
       <NuxtLink
-        v-for="product in $store.state.product.list.filter(
-          (product) => product.id < 7
-        )"
+        v-for="product in filteredRecommendedList"
         :key="product.Id"
         :to="'/product/' + product.id"
-        class="flex-container product"
       >
-        <img
-          v-if="product.Image[0].url[1] !== '_'"
-          class="product-image"
-          :src="'http://localhost:1337' + product.Image[0].url"
-          alt="product"
-          loading="lazy"
-        />
-        <img
-          v-else
-          class="product-image"
-          :src="product.Image[0].url"
-          alt="product"
-          loading="lazy"
-        />
-        <p class="product-name">{{ product.Name }}</p>
-        <span class="product-price">€{{ product.Price }}</span>
-        <button class="product-watch">
-          <font-awesome-icon
-            class="cart-icon"
-            :icon="['fas', 'cart-arrow-down']"
-          />
-          Bekijk & Bestel
-        </button>
+        <LazyProduct :product="product" />
       </NuxtLink>
     </div>
   </div>
 </template>
 
+<script>
+export default {
+  computed: {
+    filteredRecommendedList() {
+      let count = 0
+      const data = this.$store.state.product.list.filter(() => {
+        return count++ < 6
+      })
+      return data
+    },
+  },
+}
+</script>
+
 <style lang="scss">
-.product-part {
+.products-part {
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -49,6 +39,7 @@
 
   .products-title {
     font-weight: bold;
+    margin: 0;
   }
 
   .products {
@@ -58,69 +49,11 @@
     overflow: hidden;
     max-height: 21.5rem;
     overflow-y: hidden;
-
-    .product {
-      flex-direction: column;
-      align-items: flex-start;
-      max-width: 220px;
-      margin: 5px;
-      padding: 10px;
-      margin-bottom: 20px;
-      cursor: pointer;
-      text-decoration: none;
-
-      .product-image {
-        max-height: 10rem;
-        margin: 0 auto;
-        margin-bottom: 10px;
-      }
-
-      .product-name {
-        color: #009600;
-        font-weight: 500;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 2; /* number of lines to show */
-        -webkit-box-orient: vertical;
-      }
-
-      .product-name:hover {
-        text-decoration: underline;
-      }
-
-      .product-price {
-        font-weight: bold;
-        color: black;
-        margin-bottom: 10px;
-      }
-
-      .product-watch {
-        background-color: #007eb9;
-        color: white;
-        border: 0;
-        border-radius: 3px;
-        padding: 5px 20px;
-        width: 100%;
-
-        .cart-icon {
-          margin-right: 7px;
-        }
-      }
-
-      .product-watch:hover {
-        background-color: #016594;
-      }
-    }
-
-    .product:hover {
-      box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
-    }
   }
 }
 
 @media screen and (max-width: 1080px) {
-  .product-part {
+  .products-part {
     align-items: center;
 
     .products {

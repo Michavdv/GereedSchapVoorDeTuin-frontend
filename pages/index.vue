@@ -2,7 +2,7 @@
   <div>
     <LazyHomeBanner />
     <LazyRecommendedProduct />
-    <LazyHomeCategory />
+    <LazyHomeCategoryList />
   </div>
 </template>
 

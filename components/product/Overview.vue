@@ -61,7 +61,14 @@
             <NuxtLink
               v-for="n in product.Type.length"
               :key="n"
-              :to="'/product/' + getProductId(product.id, product.Type[n - 1])"
+              :to="
+                '/product/' +
+                getProductId(
+                  product.id,
+                  product.Type[n - 1],
+                  product.category.Name
+                )
+              "
               class="overview-type"
             >
               {{ product.Type[n - 1] }}
@@ -173,10 +180,14 @@ export default {
   },
 
   methods: {
-    getProductId(id, type) {
-      const product = this.$store.state.product.list.filter((product) =>
-        product.Name.includes(type)
+    getProductId(id, type, category) {
+      console.log(id + ' / ' + type + ' / ' + category)
+      const product = this.$store.state.product.list.filter(
+        (product) =>
+          product.category.Name === category &&
+          product.Tags.includes(type.toLowerCase())
       )
+      console.log(product)
       if (product.length !== 0) return product[0].id
       else return id
     },
