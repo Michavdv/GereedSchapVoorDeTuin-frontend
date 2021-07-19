@@ -17,15 +17,16 @@
           <div
             v-for="category in $store.state.category.list"
             :key="category.id"
+            class="filter-categories"
           >
             <input
               :id="category.Name"
               v-model="checkedCategories"
               type="checkbox"
-              class="products-all-category-link"
+              class="filter-checkbox"
               :value="category.Name"
             />
-            <label class="filter-label" for="category.Name">{{
+            <label class="filter-label" :for="category.Name">{{
               category.Name + ' (' + countProducts(category.Name) + ')'
             }}</label>
           </div>
@@ -188,19 +189,22 @@ export default {
       max-width: 250px;
       width: 100%;
 
-      .products-all-category-link {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
+      .filter-categories {
+        .filter-checkbox {
+          color: black;
+          text-decoration: none;
+          cursor: pointer;
+        }
+
+        .filter-label {
+          font-size: 15px;
+          cursor: pointer;
+        }
       }
 
-      .products-all-category-link:hover {
+      .filter-categories:hover {
         color: #009600;
         font-weight: 500;
-      }
-
-      .filter-label {
-        font-size: 15px;
       }
     }
 
@@ -261,6 +265,7 @@ export default {
     left: 0;
     background-color: white;
     width: 100vw;
+    z-index: 9999;
 
     .filter-header {
       background-color: #009600;
