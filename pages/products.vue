@@ -4,7 +4,12 @@
       <h1 class="products-all-title">Alle producten</h1>
       <button class="filter-menu-button" @click="toggleMenu()">
         <font-awesome-icon class="filter-icon" :icon="['fas', 'sliders-h']" />
-        Filter {{ countProducts(null) }} resultaten
+        <span v-if="checkedCategories.length === 0"
+          >Filter {{ countProducts(null) }} resultaten</span
+        >
+        <span v-else
+          >Filter {{ countProducts(checkedCategories) }} resultaten</span
+        >
       </button>
       <div class="flex-container products-all-split">
         <div class="flex-container products-all-category">
@@ -19,7 +24,6 @@
               type="checkbox"
               class="products-all-category-link"
               :value="category.Name"
-              @click="categorizeProducts(category.Name)"
             />
             <label class="filter-label" for="category.Name">{{
               category.Name + ' (' + countProducts(category.Name) + ')'
@@ -35,20 +39,14 @@
             <LazyProduct :product="product" />
           </NuxtLink>
         </div>
-        <div v-else>
-          <div
-            v-for="productList in categorizeProducts(checkedCategories)"
-            :key="productList.length"
-            class="products-all-product"
+        <div v-else class="products-all-product">
+          <NuxtLink
+            v-for="product in categorizeProducts(checkedCategories)"
+            :key="product.id"
+            :to="'/product/' + product.id"
           >
-            <NuxtLink
-              v-for="product in productList"
-              :key="product.id"
-              :to="'/product/' + product.id"
-            >
-              <LazyProduct :product="product" />
-            </NuxtLink>
-          </div>
+            <LazyProduct :product="product" />
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -78,7 +76,12 @@
       </div>
       <button class="filter-button" @click="toggleMenu()">
         <font-awesome-icon class="filter-icon" :icon="['fas', 'sliders-h']" />
-        Filter {{ countProducts(null) }} resultaten
+        <span v-if="checkedCategories.length === 0"
+          >Filter {{ countProducts(null) }} resultaten</span
+        >
+        <span v-else
+          >Filter {{ countProducts(checkedCategories) }} resultaten</span
+        >
       </button>
     </div>
   </div>
@@ -118,29 +121,34 @@ export default {
       } else if (Array.isArray(category)) {
         if (category.length !== 0) {
           const data = []
-          for (const i of category) {
+          for (const categoryName of category) {
             const products = this.$store.state.product.list.filter(
-              (product) => product.category.Name === i
+              (product) => product.category.Name === categoryName
             )
-            data.push(products)
+            for (let i = 0; i < products.length; i++) {
+              data.push(products[i])
+            }
           }
           return data
         }
-      } else {
-        // console.log('binnen else')
-        // this.$store.commit('product/remove')
-        return this.$store.state.product.list.filter(
-          (product) => product.category === category
-        )
-
-        // console.log('klaar met else')
       }
     },
     countProducts(category) {
-      if (category !== null) {
+      if (category !== null && !Array.isArray(category)) {
         return this.$store.state.product.list.filter(
           (product) => product.category.Name === category
         ).length
+      } else if (Array.isArray(category)) {
+        if (category.length !== 0) {
+          let count = 0
+          for (const categoryName of category) {
+            const products = this.$store.state.product.list.filter(
+              (product) => product.category.Name === categoryName
+            ).length
+            count += products
+          }
+          return count
+        }
       } else {
         return this.$store.state.product.list.length
       }
