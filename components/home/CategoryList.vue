@@ -41,7 +41,7 @@
   }
 
   .categories {
-    justify-content: center;
+    justify-content: space-evenly;
     flex-flow: wrap;
     margin-bottom: 40px;
 

@@ -23,20 +23,8 @@
     </div>
     <h1 class="category-title">{{ categoryName }}</h1>
     <div class="product-part-category">
-      <!-- Product list for Categories without SubCategories -->
-      <div v-if="getCategory().SubCategory === null" class="products-category">
-        <NuxtLink
-          v-for="product in $store.state.product.list.filter(
-            (product) => product.category.Name === categoryName
-          )"
-          :key="product.Id"
-          :to="'/product/' + product.id"
-        >
-          <LazyProduct :product="product" />
-        </NuxtLink>
-      </div>
       <!-- SubCategory list for Categories with SubCategories -->
-      <div v-else class="products-category">
+      <div v-if="getCategory().SubCategory !== null" class="products-category">
         <NuxtLink
           v-for="subCategory in $store.state.subcategory.list.filter(
             (subCategory) => subCategory.category.Name === categoryName
@@ -45,6 +33,18 @@
           :to="'/category/' + subCategory.Name"
         >
           <LazySubCategory :sub-category="subCategory" />
+        </NuxtLink>
+      </div>
+      <!-- Product list for Categories without SubCategories -->
+      <div v-else class="products-category">
+        <NuxtLink
+          v-for="product in $store.state.product.list.filter(
+            (product) => product.category.Name === categoryName
+          )"
+          :key="product.Id"
+          :to="'/product/' + product.id"
+        >
+          <LazyProduct :product="product" />
         </NuxtLink>
       </div>
     </div>
@@ -96,7 +96,7 @@ export default {
 
     .products-category {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       flex-flow: wrap;
       margin-bottom: 40px;
     }

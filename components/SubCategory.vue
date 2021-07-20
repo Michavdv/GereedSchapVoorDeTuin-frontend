@@ -34,8 +34,8 @@ export default {
 .subcategory {
   flex-direction: column;
   justify-content: space-between !important;
-  width: 220px;
-  height: 220px;
+  width: 280px;
+  height: 280px;
   margin: 5px;
   padding: 10px;
   margin-bottom: 20px;
@@ -43,8 +43,8 @@ export default {
   text-decoration: none;
 
   .subcategory-image {
-    max-height: 10rem;
-    max-width: 220px;
+    max-height: 14rem;
+    max-width: 250px;
     margin: 0 auto;
     margin-bottom: 10px;
   }
