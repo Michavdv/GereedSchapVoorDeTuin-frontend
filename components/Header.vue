@@ -78,7 +78,7 @@
           <NuxtLink
             v-for="n in category.SubCategory.length"
             :key="n"
-            :to="'/' + category.Name + '/' + category.SubCategory[n - 1]"
+            :to="'/category/' + category.SubCategory[n - 1]"
             class="sub-category"
             >{{ category.SubCategory[n - 1] }}
           </NuxtLink>

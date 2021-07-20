@@ -23,7 +23,8 @@
     </div>
     <h1 class="category-title">{{ categoryName }}</h1>
     <div class="product-part-category">
-      <div class="products-category">
+      <!-- Product list for Categories without SubCategories -->
+      <div v-if="getCategory().SubCategory === null" class="products-category">
         <NuxtLink
           v-for="product in $store.state.product.list.filter(
             (product) => product.category.Name === categoryName
@@ -34,6 +35,18 @@
           <LazyProduct :product="product" />
         </NuxtLink>
       </div>
+      <!-- SubCategory list for Categories with SubCategories -->
+      <div v-else class="products-category">
+        <NuxtLink
+          v-for="subCategory in $store.state.subcategory.list.filter(
+            (subCategory) => subCategory.category.Name === categoryName
+          )"
+          :key="subCategory.Id"
+          :to="'/category/' + subCategory.Name"
+        >
+          <LazySubCategory :sub-category="subCategory" />
+        </NuxtLink>
+      </div>
     </div>
   </div>
 </template>
@@ -41,10 +54,17 @@
 <script>
 export default {
   props: {
-    // Stores the string recieved from the Teams component in 'team'
     categoryName: {
       type: String,
       default: '',
+    },
+  },
+  methods: {
+    getCategory() {
+      const category = this.$store.state.category.list.filter(
+        (category) => category.Name === this.categoryName
+      )
+      return category[0]
     },
   },
 }

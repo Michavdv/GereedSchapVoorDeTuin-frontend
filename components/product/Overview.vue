@@ -181,13 +181,11 @@ export default {
 
   methods: {
     getProductId(id, type, category) {
-      console.log(id + ' / ' + type + ' / ' + category)
       const product = this.$store.state.product.list.filter(
         (product) =>
           product.category.Name === category &&
           product.Tags.includes(type.toLowerCase())
       )
-      console.log(product)
       if (product.length !== 0) return product[0].id
       else return id
     },

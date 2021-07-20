@@ -1,6 +1,6 @@
 <template>
   <div>
-    <LazyCategoryList :category-name="slug" />
+    <LazySubCategoryList :sub-category-name="slug" />
   </div>
 </template>
 
