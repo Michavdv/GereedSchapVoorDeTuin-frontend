@@ -6,20 +6,22 @@
       )"
       :key="category.Id"
     >
-      <img
-        v-if="category.PageBanner.url[1] !== '_'"
-        class="banner-category"
-        :src="'http://localhost:1337' + category.PageBanner.url"
-        alt="product"
-        loading="lazy"
-      />
-      <img
-        v-else
-        class="banner-category"
-        :src="category.PageBanner.url"
-        alt="product"
-        loading="lazy"
-      />
+      <div v-if="category.SubCategory === null">
+        <img
+          v-if="category.PageBanner.url[1] !== '_'"
+          class="banner-category"
+          :src="'http://localhost:1337' + category.PageBanner.url"
+          alt="product"
+          loading="lazy"
+        />
+        <img
+          v-else
+          class="banner-category"
+          :src="category.PageBanner.url"
+          alt="product"
+          loading="lazy"
+        />
+      </div>
     </div>
     <h1 class="category-title">{{ categoryName }}</h1>
     <div class="product-part-category">
