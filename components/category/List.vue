@@ -1,6 +1,6 @@
 <template>
   <div class="flex-container category-page">
-    <div
+    <!-- <div
       v-for="category in $store.state.category.list.filter(
         (category) => category.Name === categoryName
       )"
@@ -22,7 +22,7 @@
           loading="lazy"
         />
       </div>
-    </div>
+    </div> -->
     <h1 class="category-title">{{ categoryName }}</h1>
     <div class="product-part-category">
       <!-- SubCategory list for Categories with SubCategories -->
@@ -75,18 +75,17 @@ export default {
 <style lang="scss">
 .category-page {
   flex-direction: column;
-  margin-top: 40px;
   max-width: 1250px;
 
-  .banner-category {
-    width: 1200px;
-    height: 20rem;
-    object-fit: cover;
-    margin-bottom: 20px;
-  }
+  // .banner-category {
+  //   width: 1200px;
+  //   height: 20rem;
+  //   object-fit: cover;
+  //   margin-bottom: 20px;
+  // }
 
   .category-title {
-    margin-bottom: 40px;
+    margin: 40px 0;
     font-size: 30px;
   }
 
@@ -105,24 +104,8 @@ export default {
   }
 }
 
-@media screen and (max-width: 1250px) {
-  .category-page {
-    .product-part-category {
-      align-items: center;
-
-      .products-category {
-        max-width: 800px;
-        justify-content: center;
-        max-height: 100%;
-      }
-    }
-  }
-}
-
 @media screen and (max-width: 900px) {
   .category-page {
-    margin-top: 0;
-
     .banner-category {
       width: 100vw;
       height: 10rem;

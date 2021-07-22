@@ -166,10 +166,11 @@ export default {
   data() {
     // The default values for the mobile navbar
     return {
-      mostExpensiveProduct: Math.max.apply(
-        null,
-        this.$store.state.product.list.map((product) => product.Price)
-      ),
+      mostExpensiveProduct:
+        Math.max.apply(
+          null,
+          this.$store.state.product.list.map((product) => product.Price)
+        ) + 1,
       menuOpen: false,
       checkedCategories: [],
       givenMinPrice: 0,

@@ -31,11 +31,10 @@ export default {
 <style lang="scss">
 .subcategory-page {
   flex-direction: column;
-  margin-top: 40px;
   max-width: 1250px;
 
   .subcategory-title {
-    margin-bottom: 40px;
+    margin: 40px 0;
     font-size: 30px;
   }
 
