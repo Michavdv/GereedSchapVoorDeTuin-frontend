@@ -38,7 +38,8 @@
         </NuxtLink>
       </div>
       <!-- Product list for Categories without SubCategories -->
-      <div v-else class="products-category">
+      <hr class="products-divider" />
+      <div class="products-category">
         <NuxtLink
           v-for="product in $store.state.product.list.filter(
             (product) => product.category.Name === categoryName
@@ -100,6 +101,11 @@ export default {
       justify-content: center;
       flex-flow: wrap;
       margin-bottom: 40px;
+    }
+
+    .products-divider {
+      border: 1px solid #d7e6d8;
+      margin-bottom: 60px;
     }
   }
 }

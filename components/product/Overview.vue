@@ -76,7 +76,10 @@
           </div>
           <div class="flex-container overview-under-types">
             <div class="overview-buy-info">
-              <span class="overview-price">€{{ product.Price }}</span>
+              <span class="overview-price"
+                >€{{ product.Price
+                }}<span v-if="product.Price % 1 === 0">.-</span></span
+              >
               <div class="flex-container">
                 <input type="number" class="overview-quantity" value="1" />
                 <button class="shoppingcart">

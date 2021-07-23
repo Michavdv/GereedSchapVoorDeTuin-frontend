@@ -133,8 +133,9 @@ export default Vue.extend({
       let count = 0
       return this.$store.state.product.list.filter((product) => {
         return (
-          product.Name.toLowerCase().includes(this.search.toLowerCase()) &&
-          count++ < 10
+          (product.Name.toLowerCase().includes(this.search.toLowerCase()) &&
+            count++ < 10) ||
+          (product.Tags.includes(this.search.toLowerCase()) && count++ < 10)
         )
       })
     },

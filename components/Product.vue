@@ -1,21 +1,25 @@
 <template>
   <div class="flex-container product-category">
-    <img
-      v-if="product.Image[0].url[1] !== '_'"
-      class="product-image-category"
-      :src="'http://localhost:1337' + product.Image[0].url"
-      alt="product"
-      loading="lazy"
-    />
-    <img
-      v-else
-      class="product-image-category"
-      :src="product.Image[0].url"
-      alt="product"
-      loading="lazy"
-    />
+    <div class="product-image-container">
+      <img
+        v-if="product.Image[0].url[1] !== '_'"
+        class="product-image-category"
+        :src="'http://localhost:1337' + product.Image[0].url"
+        alt="product"
+        loading="lazy"
+      />
+      <img
+        v-else
+        class="product-image-category"
+        :src="product.Image[0].url"
+        alt="product"
+        loading="lazy"
+      />
+    </div>
     <p class="product-name-category">{{ product.Name }}</p>
-    <span class="product-price-category">€{{ product.Price }}</span>
+    <span class="product-price-category"
+      >€{{ product.Price }}<span v-if="product.Price % 1 === 0">.-</span></span
+    >
     <button class="product-watch">
       <font-awesome-icon class="cart-icon" :icon="['fas', 'cart-arrow-down']" />
       Bekijk & Bestel
@@ -48,11 +52,17 @@ export default {
   cursor: pointer;
   text-decoration: none;
 
-  .product-image-category {
-    max-height: 10rem;
-    max-width: 220px;
+  .product-image-container {
+    height: 10rem;
     margin: 0 auto;
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+
+    .product-image-category {
+      max-height: 100%;
+      max-width: 160px;
+      margin-bottom: 10px;
+    }
   }
 
   .product-name-category {

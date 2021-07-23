@@ -75,6 +75,7 @@ export const state = () => ({
         'Vloertrekkers',
         'Borstels',
         'Voetenvegers',
+        'Verfkwasten',
         'Overige',
       ],
       HomeImage: {

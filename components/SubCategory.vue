@@ -1,19 +1,21 @@
 <template>
   <div class="flex-container subcategory">
-    <img
-      v-if="subCategory.Image.url[1] !== '_'"
-      class="subcategory-image"
-      :src="'http://localhost:1337' + subCategory.Image.url"
-      alt="product"
-      loading="lazy"
-    />
-    <img
-      v-else
-      class="subcategory-image"
-      :src="subCategory.Image.url"
-      alt="product"
-      loading="lazy"
-    />
+    <div class="subcategory-image-container">
+      <img
+        v-if="subCategory.Image.url[1] !== '_'"
+        class="subcategory-image"
+        :src="'http://localhost:1337' + subCategory.Image.url"
+        alt="product"
+        loading="lazy"
+      />
+      <img
+        v-else
+        class="subcategory-image"
+        :src="subCategory.Image.url"
+        alt="product"
+        loading="lazy"
+      />
+    </div>
     <p class="subcategory-name">{{ subCategory.Name }}</p>
   </div>
 </template>
@@ -42,11 +44,17 @@ export default {
   cursor: pointer;
   text-decoration: none;
 
-  .subcategory-image {
-    max-height: 14rem;
-    max-width: 250px;
+  .subcategory-image-container {
+    height: 14rem;
     margin: 0 auto;
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+
+    .subcategory-image {
+      max-height: 100%;
+      max-width: 250px;
+      margin-bottom: 10px;
+    }
   }
 
   .subcategory-name {

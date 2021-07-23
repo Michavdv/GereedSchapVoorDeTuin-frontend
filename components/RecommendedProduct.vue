@@ -47,7 +47,7 @@ export default {
     justify-content: space-between;
     flex-wrap: wrap;
     overflow: hidden;
-    max-height: 21.5rem;
+    max-height: 20rem;
     overflow-y: hidden;
   }
 }

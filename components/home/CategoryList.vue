@@ -48,7 +48,7 @@
     .category {
       flex-direction: column;
       align-items: center;
-      max-width: 150px;
+      width: 150px;
       margin: 0 20px;
       margin-bottom: 20px;
       cursor: pointer;
