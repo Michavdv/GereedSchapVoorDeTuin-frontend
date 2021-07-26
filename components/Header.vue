@@ -40,7 +40,7 @@
           />
         </div>
         <nav class="flex-container icons">
-          <NuxtLink to="/">
+          <NuxtLink to="/login">
             <p class="login">Aanmelden</p>
             <font-awesome-icon class="icon" :icon="['fas', 'user']" />
           </NuxtLink>
