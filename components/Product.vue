@@ -2,7 +2,14 @@
   <div class="flex-container product-category">
     <div class="product-image-container">
       <img
-        v-if="product.Image[0].url[1] !== '_'"
+        v-if="product.Image.length === 0"
+        class="product-image-category"
+        src="~/assets/img/Dummy-product.jpg"
+        alt=""
+        loading="lazy"
+      />
+      <img
+        v-else-if="product.Image[0].url[1] !== '_'"
         class="product-image-category"
         :src="'http://localhost:1337' + product.Image[0].url"
         alt="product"

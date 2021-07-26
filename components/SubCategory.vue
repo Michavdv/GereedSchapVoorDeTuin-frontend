@@ -2,7 +2,13 @@
   <div class="flex-container subcategory">
     <div class="subcategory-image-container">
       <img
-        v-if="subCategory.Image.url[1] !== '_'"
+        v-if="subCategory.Image === null"
+        src="~/assets/img/Dummy-product.jpg"
+        alt=""
+        loading="lazy"
+      />
+      <img
+        v-else-if="subCategory.Image.url[1] !== '_'"
         class="subcategory-image"
         :src="'http://localhost:1337' + subCategory.Image.url"
         alt="product"

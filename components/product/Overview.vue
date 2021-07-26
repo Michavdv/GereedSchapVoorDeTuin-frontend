@@ -13,48 +13,58 @@
       </div>
       <div class="flex-container overview-info">
         <div class="overview-images">
-          <VueSlickCarousel class="image-carousel" v-bind="settings">
-            <template #prevArrow="">
-              <div class="image-button">❮</div>
-            </template>
-            <div v-for="n in product.Image.length" :key="n">
-              <img
-                v-if="product.Image[n - 1].url[1] !== '_'"
-                class="overview-image"
-                :src="'http://localhost:1337' + product.Image[n - 1].url"
-                alt="product"
-                loading="lazy"
-              />
-              <img
-                v-else
-                class="overview-image"
-                :src="product.Image[n - 1].url"
-                alt="product"
-                loading="lazy"
-              />
-            </div>
-            <template #nextArrow="">
-              <div class="image-button">❯</div>
-            </template>
-            <template #customPaging="page">
-              <div class="images-dots">
+          <div v-if="product.Image.length !== 0">
+            <VueSlickCarousel class="image-carousel" v-bind="settings">
+              <template #prevArrow="">
+                <div class="image-button">❮</div>
+              </template>
+              <div v-for="n in product.Image.length" :key="n">
                 <img
-                  v-if="product.Image[page].url[1] !== '_'"
-                  :src="'http://localhost:1337' + product.Image[page].url"
-                  class="image-dots"
-                  alt=""
-                  loadgin="lazy"
+                  v-if="product.Image[n - 1].url[1] !== '_'"
+                  class="overview-image"
+                  :src="'http://localhost:1337' + product.Image[n - 1].url"
+                  alt="product"
+                  loading="lazy"
                 />
                 <img
                   v-else
-                  :src="product.Image[page].url"
-                  class="image-dots"
-                  alt=""
-                  loadgin="lazy"
+                  class="overview-image"
+                  :src="product.Image[n - 1].url"
+                  alt="product"
+                  loading="lazy"
                 />
               </div>
-            </template>
-          </VueSlickCarousel>
+              <template #nextArrow="">
+                <div class="image-button">❯</div>
+              </template>
+              <template #customPaging="page">
+                <div class="images-dots">
+                  <img
+                    v-if="product.Image[page].url[1] !== '_'"
+                    :src="'http://localhost:1337' + product.Image[page].url"
+                    class="image-dots"
+                    alt=""
+                    loadgin="lazy"
+                  />
+                  <img
+                    v-else
+                    :src="product.Image[page].url"
+                    class="image-dots"
+                    alt=""
+                    loadgin="lazy"
+                  />
+                </div>
+              </template>
+            </VueSlickCarousel>
+          </div>
+          <div v-else>
+            <img
+              class="overview-image"
+              src="~/assets/img/Dummy-product.jpg"
+              alt="product"
+              loading="lazy"
+            />
+          </div>
         </div>
         <div class="flex-container overview-options">
           <div class="flex-container overview-types">
