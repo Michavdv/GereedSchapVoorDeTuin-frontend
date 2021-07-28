@@ -154,6 +154,12 @@
 
 <script>
 export default {
+  middleware({ store, redirect }) {
+    // If the user is not authenticated
+    if (store.state.login.list.length === 0) {
+      return redirect('/login')
+    }
+  },
   async asyncData({ $getData }) {
     // Tries to fetch data from Strapi (CMS) which, if exists, will be stored in the state
     try {

@@ -58,6 +58,9 @@ export default {
         ],
       },
     ],
+    '@nuxtjs/auth',
+    '@nuxtjs/axios',
+    '@nuxtjs/toast',
   ],
 
   styleResources: {
@@ -79,5 +82,26 @@ export default {
         },
       },
     },
+  },
+
+  toast: {
+    position: 'bottom-center',
+    duration: 5000,
+    register: [
+      {
+        name: 'login_success',
+        message: 'Je bent succesvol ingelogd',
+        options: {
+          action: {
+            text: 'Ok',
+            onClick: (_e, toastObject) => {
+              toastObject.goAway(0)
+            },
+          },
+          keepOnHover: true,
+          type: 'success',
+        },
+      },
+    ],
   },
 }

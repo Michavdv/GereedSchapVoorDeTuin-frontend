@@ -41,7 +41,10 @@
         </div>
         <nav class="flex-container icons">
           <NuxtLink to="/login">
-            <p class="login">Aanmelden</p>
+            <p v-if="$store.state.login.list.length === 0" class="login">
+              Aanmelden
+            </p>
+            <p v-else>{{ $store.state.login.list.username }}</p>
             <font-awesome-icon class="icon" :icon="['fas', 'user']" />
           </NuxtLink>
           <NuxtLink to="/">
@@ -271,6 +274,10 @@ export default Vue.extend({
             width: 40px;
             margin: 0 5px;
           }
+        }
+
+        a:hover {
+          color: #d9ffd9;
         }
       }
     }
