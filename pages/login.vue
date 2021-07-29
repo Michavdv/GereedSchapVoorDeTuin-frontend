@@ -10,12 +10,20 @@
               class="login-icon icon-email"
               :icon="['fas', 'envelope']"
             />
-            <input
-              v-model="email"
-              class="login-input login-email"
-              placeholder="E-mailadres"
-              type="email"
-            />
+            <ValidationProvider
+              v-slot="{ errors }"
+              rules="required|email"
+              name="email"
+            >
+              <input
+                v-model="email"
+                type="text"
+                class="login-input login-email"
+                autocomplete="email "
+                placeholder="E-mailadres"
+              />
+              <span class="error">{{ errors[0] }}</span>
+            </ValidationProvider>
           </div>
           <div class="flex-container login-input-container">
             <font-awesome-icon
@@ -26,16 +34,21 @@
               v-model="password"
               class="login-input login-password"
               placeholder="Wachtwoord"
+              autocomplete="current-password"
               type="password"
             />
           </div>
+          <div class="flex-container login-button-container">
+            <button
+              type="button"
+              class="login-button"
+              @click="checkUserInfo(email, password)"
+            >
+              Inloggen
+            </button>
+            <a href="/">Wachtwoord vergeten?</a>
+          </div>
         </form>
-        <div class="flex-container login-button-container">
-          <button class="login-button" @click="checkUserInfo(email, password)">
-            Inloggen
-          </button>
-          <a href="/">Wachtwoord vergeten?</a>
-        </div>
       </div>
       <div class="login-new">
         <h5 class="login-subtitle">Nieuwe klanten</h5>
@@ -57,9 +70,15 @@
 </template>
 
 <script>
+import { ValidationProvider } from 'vee-validate'
 import axios from 'axios'
 
 export default {
+  // These components are used to validate the inputfields.
+  // The ValidationProvider is used for a single field and checks the field on predefined rules and the validationObserver checks the form on ValidationProviders
+  components: {
+    ValidationProvider,
+  },
   data() {
     return {
       email: '',
@@ -81,7 +100,6 @@ export default {
           this.$store.commit('login/setUser', response.data.user)
           console.log(this.$store.state.login.list)
           this.$toast.global.login_success()
-          return redirect('/')
         })
         .catch((error) => {
           // Handle error.
@@ -154,6 +172,15 @@ export default {
 
       .login-input:focus {
         outline: none;
+      }
+
+      .error {
+        margin-top: -20px;
+        font-size: 12px;
+        color: red;
+        position: absolute;
+        display: block;
+        font-style: italic;
       }
     }
 
