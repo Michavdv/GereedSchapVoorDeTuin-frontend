@@ -44,7 +44,7 @@
             <p v-if="$store.state.login.list.length === 0" class="login">
               Aanmelden
             </p>
-            <p v-else>{{ $store.state.login.list.username }}</p>
+            <p v-else class="login">{{ $store.state.login.list.username }}</p>
             <font-awesome-icon class="icon" :icon="['fas', 'user']" />
           </NuxtLink>
           <NuxtLink to="/">

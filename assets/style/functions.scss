@@ -1,0 +1,16 @@
+:root {
+    --factor : 1920;
+
+    @media ($tablet) {
+        --factor : 992;
+    }
+
+    @media ($phone) {
+        --factor : 360;
+    }
+}
+
+@function vw($px: 0px) {
+    $num : $px / ($px * 0 + 1); // cast to number
+    @return calc(#{$num} / var(--factor) * 100vw);
+}

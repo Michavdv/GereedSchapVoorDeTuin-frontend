@@ -138,9 +138,24 @@
         </div>
       </div>
       <div class="flex-container overview-extra-info">
-        <div class="overview-description">
+        <div class="flex-container overview-description">
           <h4>Productbeschrijving</h4>
-          <p>{{ product.Description }}</p>
+          <p
+            :class="descriptionOpen ? 'description-open' : 'description-closed'"
+          >
+            {{ product.Description }}
+          </p>
+          <a
+            v-if="!descriptionOpen"
+            class="read-more"
+            @click="toggleDescription()"
+            ><font-awesome-icon class="icon" :icon="['fas', 'arrow-down']" />
+            Lees meer
+          </a>
+          <a v-else class="read-more" @click="toggleDescription()"
+            ><font-awesome-icon class="icon" :icon="['fas', 'arrow-up']" />
+            Lees minder
+          </a>
         </div>
         <div class="overview-reviews">
           <div class="flex-container write-review">
@@ -159,6 +174,30 @@
             <LazyProductRating :rating="product.Rating" />
           </div>
         </div>
+      </div>
+      <div
+        v-if="product.Measurement !== null"
+        class="flex-container overview-specifications"
+      >
+        <h4>Gewicht en afmetingen</h4>
+        <table class="overview-table">
+          <tr>
+            <td>Gewicht</td>
+            <td>{{ product.Measurement.Gewicht }} kg</td>
+          </tr>
+          <tr>
+            <td>Lengte</td>
+            <td>{{ product.Measurement.Lengte }} cm</td>
+          </tr>
+          <tr>
+            <td>Diepte</td>
+            <td>{{ product.Measurement.Diepte }} cm</td>
+          </tr>
+          <tr>
+            <td>Breedte</td>
+            <td>{{ product.Measurement.Breedte }} cm</td>
+          </tr>
+        </table>
       </div>
     </div>
     <LazyRecommendedProduct class="overview-recommended" />
@@ -181,6 +220,7 @@ export default {
   },
   data() {
     return {
+      descriptionOpen: false,
       settings: {
         lazyLoad: 'ondemand',
         dots: true,
@@ -193,6 +233,13 @@ export default {
   },
 
   methods: {
+    toggleDescription() {
+      if (this.descriptionOpen) {
+        this.descriptionOpen = false
+      } else {
+        this.descriptionOpen = true
+      }
+    },
     getProductId(id, type, category) {
       const product = this.$store.state.product.list.filter(
         (product) =>
@@ -430,6 +477,33 @@ export default {
 
       .overview-description {
         width: 45%;
+        flex-direction: column;
+        align-items: flex-start;
+        transition: all 0.2s ease;
+
+        .description-closed {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 3; /* number of lines to show */
+          -webkit-box-orient: vertical;
+          margin-bottom: 10px;
+        }
+
+        .description-open {
+          display: block;
+          margin-bottom: 10px;
+        }
+
+        .read-more {
+          cursor: pointer;
+          text-decoration: none;
+          margin-bottom: 10px;
+        }
+
+        .read-more:hover {
+          color: #0659b1;
+        }
       }
 
       .overview-reviews {
@@ -467,6 +541,33 @@ export default {
             font-size: 50px;
             font-weight: 600;
           }
+        }
+      }
+    }
+
+    .overview-specifications {
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      padding: 0 40px;
+      margin: 20px 0;
+
+      h4 {
+        font-weight: bold;
+      }
+
+      .overview-table {
+        border-collapse: collapse;
+        width: 100%;
+
+        tr,
+        td {
+          padding: 8px;
+          font-size: 15px;
+        }
+
+        tr:nth-child(even) {
+          background-color: #f2f2f2;
         }
       }
     }
@@ -515,6 +616,10 @@ export default {
         .overview-reviews {
           width: 70%;
         }
+      }
+
+      .overview-specifications {
+        width: 90%;
       }
     }
   }
@@ -603,6 +708,10 @@ export default {
             }
           }
         }
+      }
+
+      .overview-specifications {
+        width: 80%;
       }
     }
   }

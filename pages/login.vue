@@ -6,10 +6,7 @@
         <h5 class="login-subtitle">Bestaande klanten</h5>
         <form class="flex-container login-inputs">
           <div class="flex-container login-input-container">
-            <font-awesome-icon
-              class="login-icon icon-email"
-              :icon="['fas', 'envelope']"
-            />
+            <font-awesome-icon class="login-icon" :icon="['fas', 'envelope']" />
             <ValidationProvider
               v-slot="{ errors }"
               rules="required|email"
@@ -18,7 +15,7 @@
               <input
                 v-model="email"
                 type="text"
-                class="login-input login-email"
+                class="login-input"
                 autocomplete="email "
                 placeholder="E-mailadres"
               />
@@ -26,13 +23,10 @@
             </ValidationProvider>
           </div>
           <div class="flex-container login-input-container">
-            <font-awesome-icon
-              class="login-icon icon-password"
-              :icon="['fas', 'lock']"
-            />
+            <font-awesome-icon class="login-icon" :icon="['fas', 'lock']" />
             <input
               v-model="password"
-              class="login-input login-password"
+              class="login-input"
               placeholder="Wachtwoord"
               autocomplete="current-password"
               type="password"
@@ -53,16 +47,37 @@
       <div class="login-new">
         <h5 class="login-subtitle">Nieuwe klanten</h5>
         <div class="flex-container login-input-container">
-          <font-awesome-icon
-            class="login-icon icon-email"
-            :icon="['fas', 'envelope']"
+          <input
+            class="login-input login-naam"
+            placeholder="Voornaam"
+            type="email"
           />
           <input
-            class="login-input login-email"
-            placeholder="E-mailadres"
+            class="login-input login-naam"
+            placeholder="Tussenvoegsel"
+            type="email"
+          />
+          <input
+            class="login-input login-naam"
+            placeholder="Achternaam"
             type="email"
           />
         </div>
+        <div class="flex-container login-input-container">
+          <font-awesome-icon class="login-icon" :icon="['fas', 'envelope']" />
+          <input class="login-input" placeholder="E-mailadres" type="email" />
+        </div>
+        <div class="flex-container login-input-container">
+          <font-awesome-icon
+            class="login-icon icon-KVK"
+            :icon="['fas', 'building']"
+          />
+          <input class="login-input" placeholder="KVK-nummer" type="email" />
+        </div>
+        <p class="account-info">
+          * Na het aanvragen van uw account krijgt u bij goedkeuring het
+          wachtwoord van uw account doorgestuurd, deze kunt u later wijzigen.
+        </p>
         <button class="login-button">Vraag een account aan</button>
       </div>
     </div>
@@ -156,6 +171,10 @@ export default {
         height: 39px;
       }
 
+      .icon-KVK {
+        height: 38px;
+      }
+
       .login-input {
         margin-bottom: 10px;
         padding: 0.4rem 0.2rem;
@@ -174,6 +193,18 @@ export default {
         outline: none;
       }
 
+      .login-naam {
+        min-width: 0px;
+        max-width: 130px;
+        margin-right: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        padding: 0.4rem 10px;
+      }
+
+      .login-naam:nth-child(3) {
+        margin-right: 0px;
+      }
+
       .error {
         margin-top: -20px;
         font-size: 12px;
@@ -182,6 +213,13 @@ export default {
         display: block;
         font-style: italic;
       }
+    }
+
+    .account-info {
+      max-width: 350px;
+      font-size: 11px;
+      margin-bottom: 10px;
+      color: rgba(0, 0, 0, 0.7);
     }
 
     .login-button {

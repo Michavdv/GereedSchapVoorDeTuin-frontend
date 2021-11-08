@@ -6,6 +6,23 @@
   </div>
 </template>
 
+<script>
+import VueCookiebot from '@ambitiondev/vue-cookiebot-plugin'
+import Vue from 'vue'
+
+// Fetching the cookiebanner with the plugin 'vue-cookiebot-plugin'
+Vue.use(VueCookiebot, {
+  cookieBotID: '0b085555-c7a5-41a2-87d3-0d25e4f543c4',
+})
+
+export default {
+  mounted() {
+    // Shows the cookiebanner
+    this.$cookiebot.consentBanner()
+  },
+}
+</script>
+
 <style lang="scss">
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
