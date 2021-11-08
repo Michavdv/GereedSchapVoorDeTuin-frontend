@@ -9,6 +9,12 @@ export const state = () => ({
       Price: '25',
       Tags: ['Scheppen', '120', 'talen', 'tools'],
       Type: ['120 cm hout', '100 cm hout', '120 cm staal', '100 cm staal'],
+      Measurement: {
+        Gewicht: '3.0',
+        Lengte: '280',
+        Diepte: '38',
+        Breedte: '40',
+      },
       Rating: 1.5,
       Image: [
         {
@@ -33,6 +39,12 @@ export const state = () => ({
       Price: '25',
       Tags: ['Bezems', '120', 'talen', 'tools'],
       Type: ['120 cm hout', '100 cm hout', '120 cm staal', '100 cm staal'],
+      Measurement: {
+        Gewicht: '3.0',
+        Lengte: '280',
+        Diepte: '38',
+        Breedte: '40',
+      },
       Rating: 4,
       Image: [
         {
@@ -57,6 +69,12 @@ export const state = () => ({
       Price: '25',
       Tags: ['Harken', '120', 'talen', 'tools'],
       Type: ['120 cm hout', '100 cm hout', '120 cm staal', '100 cm staal'],
+      Measurement: {
+        Gewicht: '3.0',
+        Lengte: '280',
+        Diepte: '38',
+        Breedte: '40',
+      },
       Rating: 5,
       Image: [
         {
@@ -81,6 +99,12 @@ export const state = () => ({
       Price: '25',
       Tags: ['Onkruidkrabbers', '120', 'talen', 'tools'],
       Type: ['120 cm hout', '100 cm hout', '120 cm staal', '100 cm staal'],
+      Measurement: {
+        Gewicht: '3.0',
+        Lengte: '280',
+        Diepte: '38',
+        Breedte: '40',
+      },
       Rating: 5,
       Image: [
         {
@@ -105,6 +129,12 @@ export const state = () => ({
       Price: '25',
       Tags: ['Schoffels', '120', 'talen', 'tools'],
       Type: ['120 cm hout', '100 cm hout', '120 cm staal', '100 cm staal'],
+      Measurement: {
+        Gewicht: '3.0',
+        Lengte: '280',
+        Diepte: '38',
+        Breedte: '40',
+      },
       Rating: 2,
       Image: [
         {
@@ -129,6 +159,12 @@ export const state = () => ({
       Price: '25',
       Tags: ['Scheppen', '120', 'talen', 'tools'],
       Type: ['120 cm hout', '100 cm hout', '120 cm staal', '100 cm staal'],
+      Measurement: {
+        Gewicht: '3.0',
+        Lengte: '280',
+        Diepte: '38',
+        Breedte: '40',
+      },
       Rating: 3,
       Image: [
         {
@@ -153,6 +189,12 @@ export const state = () => ({
       Price: '25',
       Tags: ['Bezems', '120', 'talen', 'tools'],
       Type: ['120 cm hout', '100 cm hout', '120 cm staal', '100 cm staal'],
+      Measurement: {
+        Gewicht: '3.0',
+        Lengte: '280',
+        Diepte: '38',
+        Breedte: '40',
+      },
       Rating: 1,
       Image: [
         {
@@ -177,6 +219,12 @@ export const state = () => ({
       Price: '25',
       Tags: ['Harken', '120', 'talen', 'tools'],
       Type: ['120 cm hout', '100 cm hout', '120 cm staal', '100 cm staal'],
+      Measurement: {
+        Gewicht: '3.0',
+        Lengte: '280',
+        Diepte: '38',
+        Breedte: '40',
+      },
       Rating: 3,
       Image: [
         {
@@ -199,9 +247,24 @@ export const state = () => ({
       Description:
         'Deze hooivork is geschikt voor gebruik in de stal, bij het verplaatsen en voeren van hooi/stro voor uw dieren. De hark heeft twee tanden en is licht in gebruik, zo is hij ook te gebruiken bij het verwijderen van stro, blad of takken uit uw tuin. De tanden van de vork zijn licht gebogen, zo vormen ze een schotel met brede spleten. De vork is voorzien van een 120cm lange steel. Bij gebruik buigt u eerst uw knieën, niet uw rug. En steekt dan de vork geleidelijk en soepel in een berg ‘materiaal’, neem zoveel mogelijk op en deponeer het op de door u gewenste plaats. De afmeting van deze vork is: 150x15cm LxB. \n',
       Price: 29.95,
-      Tags: ['Hooivork', 'Hooivorken', 'Vorken', 'Landbouw', '2', 'T', '4V'],
+      Tags: [
+        'Hooivork',
+        'Hooivorken',
+        'Vorken',
+        'Landbouw',
+        '2 T 4V',
+        '2',
+        'T',
+        '4V',
+      ],
       Rating: 4.6,
-      Type: ['2 T 4V', '2 T 4,5V', '2 T 5V', '2 T 5,5V', 'los 2 tands'],
+      Type: ['2 T 4V', '2 T 4,5V', '2 T 5V', '2 T 5,5V', 'Los 2 tands'],
+      Measurement: {
+        Gewicht: '3.0',
+        Lengte: '280',
+        Diepte: '38',
+        Breedte: '40',
+      },
       category: {
         Name: 'Landbouw',
       },
@@ -220,9 +283,24 @@ export const state = () => ({
       Description:
         'Deze hooivork is geschikt voor gebruik in de stal, bij het verplaatsen en voeren van hooi/stro voor uw dieren. De hark heeft twee tanden en is licht in gebruik, zo is hij ook te gebruiken bij het verwijderen van stro, blad of takken uit uw tuin. De tanden van de vork zijn licht gebogen, zo vormen ze een schotel met brede spleten. De vork is voorzien van een 120cm lange steel. Bij gebruik buigt u eerst uw knieën, niet uw rug. En steekt dan de vork geleidelijk en soepel in een berg ‘materiaal’, neem zoveel mogelijk op en deponeer het op de door u gewenste plaats. De afmeting van deze vork is: 150x15cm LxB. \n',
       Price: 29.95,
-      Tags: ['Hooivork', 'Hooivorken', 'Vorken', 'Landbouw', '2', 'T', '4V'],
+      Tags: [
+        'Hooivork',
+        'Hooivorken',
+        'Vorken',
+        'Landbouw',
+        '2 T 4,5V',
+        '2',
+        'T',
+        '4V',
+      ],
       Rating: 4.6,
-      Type: ['2 T 4V', '2 T 4,5V', '2 T 5V', '2 T 5,5V', 'los 2 tands'],
+      Type: ['2 T 4V', '2 T 4,5V', '2 T 5V', '2 T 5,5V', 'Los 2 tands'],
+      Measurement: {
+        Gewicht: '3.0',
+        Lengte: '280',
+        Diepte: '38',
+        Breedte: '40',
+      },
       category: {
         Name: 'Landbouw',
       },
@@ -241,9 +319,24 @@ export const state = () => ({
       Description:
         'Deze hooivork is geschikt voor gebruik in de stal, bij het verplaatsen en voeren van hooi/stro voor uw dieren. De hark heeft twee tanden en is licht in gebruik, zo is hij ook te gebruiken bij het verwijderen van stro, blad of takken uit uw tuin. De tanden van de vork zijn licht gebogen, zo vormen ze een schotel met brede spleten. De vork is voorzien van een 120cm lange steel. Bij gebruik buigt u eerst uw knieën, niet uw rug. En steekt dan de vork geleidelijk en soepel in een berg ‘materiaal’, neem zoveel mogelijk op en deponeer het op de door u gewenste plaats. De afmeting van deze vork is: 150x15cm LxB. \n',
       Price: 29.95,
-      Tags: ['Hooivork', 'Hooivorken', 'Vorken', 'Landbouw', '2', 'T', '4V'],
+      Tags: [
+        'Hooivork',
+        'Hooivorken',
+        'Vorken',
+        'Landbouw',
+        '2 T 5V',
+        '2',
+        'T',
+        '4V',
+      ],
       Rating: 4.6,
-      Type: ['2 T 4V', '2 T 4,5V', '2 T 5V', '2 T 5,5V', 'los 2 tands'],
+      Type: ['2 T 4V', '2 T 4,5V', '2 T 5V', '2 T 5,5V', 'Los 2 tands'],
+      Measurement: {
+        Gewicht: '3.0',
+        Lengte: '280',
+        Diepte: '38',
+        Breedte: '40',
+      },
       category: {
         Name: 'Landbouw',
       },
@@ -262,9 +355,24 @@ export const state = () => ({
       Description:
         'Deze hooivork is geschikt voor gebruik in de stal, bij het verplaatsen en voeren van hooi/stro voor uw dieren. De hark heeft twee tanden en is licht in gebruik, zo is hij ook te gebruiken bij het verwijderen van stro, blad of takken uit uw tuin. De tanden van de vork zijn licht gebogen, zo vormen ze een schotel met brede spleten. De vork is voorzien van een 120cm lange steel. Bij gebruik buigt u eerst uw knieën, niet uw rug. En steekt dan de vork geleidelijk en soepel in een berg ‘materiaal’, neem zoveel mogelijk op en deponeer het op de door u gewenste plaats. De afmeting van deze vork is: 150x15cm LxB. \n',
       Price: 29.95,
-      Tags: ['Hooivork', 'Hooivorken', 'Vorken', 'Landbouw', '2', 'T', '4V'],
+      Tags: [
+        'Hooivork',
+        'Hooivorken',
+        'Vorken',
+        'Landbouw',
+        '2 T 5,5V',
+        '2',
+        'T',
+        '4V',
+      ],
       Rating: 4.6,
-      Type: ['2 T 4V', '2 T 4,5V', '2 T 5V', '2 T 5,5V', 'los 2 tands'],
+      Type: ['2 T 4V', '2 T 4,5V', '2 T 5V', '2 T 5,5V', 'Los 2 tands'],
+      Measurement: {
+        Gewicht: '3.0',
+        Lengte: '280',
+        Diepte: '38',
+        Breedte: '40',
+      },
       category: {
         Name: 'Landbouw',
       },
@@ -283,9 +391,9 @@ export const state = () => ({
       Description:
         'Deze hooivork is geschikt voor gebruik in de stal, bij het verplaatsen en voeren van hooi/stro voor uw dieren. De hark heeft twee tanden en is licht in gebruik, zo is hij ook te gebruiken bij het verwijderen van stro, blad of takken uit uw tuin. De tanden van de vork zijn licht gebogen, zo vormen ze een schotel met brede spleten. De vork is voorzien van een 120cm lange steel. Bij gebruik buigt u eerst uw knieën, niet uw rug. En steekt dan de vork geleidelijk en soepel in een berg ‘materiaal’, neem zoveel mogelijk op en deponeer het op de door u gewenste plaats. De afmeting van deze vork is: 150x15cm LxB. \n',
       Price: 29.95,
-      Tags: ['Hooivork', 'Hooivorken', 'Vorken', 'Landbouw', '2', 'T', '4V'],
+      Tags: ['Hooivork', 'Hooivorken', 'Vorken', 'Landbouw', 'Los 2 tands'],
       Rating: 4.6,
-      Type: ['2 T 4V', '2 T 4,5V', '2 T 5V', '2 T 5,5V', 'los 2 tands'],
+      Type: ['2 T 4V', '2 T 4,5V', '2 T 5V', '2 T 5,5V', 'Los 2 tands'],
       category: {
         Name: 'Landbouw',
       },

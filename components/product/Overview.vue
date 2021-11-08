@@ -176,7 +176,7 @@
         </div>
       </div>
       <div
-        v-if="product.Measurement !== null"
+        v-if="product.Measurement !== undefined"
         class="flex-container overview-specifications"
       >
         <h4>Gewicht en afmetingen</h4>
@@ -243,8 +243,8 @@ export default {
     getProductId(id, type, category) {
       const product = this.$store.state.product.list.filter(
         (product) =>
-          product.category.Name === category &&
-          product.Tags.includes(type.toLowerCase())
+          product.category.Name === category && product.Tags.includes(type)
+        // add .toLowerCase() on type when adding Strapi
       )
       if (product.length !== 0) return product[0].id
       else return id
