@@ -2,6 +2,10 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
 
+  publicRuntimeConfig: {
+    backendUrl: process.env.BACKEND_URL ?? '',
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'frontend',
@@ -20,7 +24,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~/plugins/utils'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -47,9 +51,16 @@ export default {
             set: '@fortawesome/free-brands-svg-icons',
             icons: ['fab'],
           },
+          {
+            set: '@fortawesome/free-regular-svg-icons',
+            icons: ['far'],
+          },
         ],
       },
     ],
+    '@nuxtjs/auth',
+    '@nuxtjs/axios',
+    '@nuxtjs/toast',
   ],
 
   styleResources: {
@@ -58,6 +69,7 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ['vee-validate/dist/rules'],
     postcss: {
       // Add plugin names as key and arguments as value
       // Install them before as dependencies with npm or yarn
@@ -71,5 +83,26 @@ export default {
         },
       },
     },
+  },
+
+  toast: {
+    position: 'bottom-center',
+    duration: 5000,
+    register: [
+      {
+        name: 'login_success',
+        message: 'Je bent succesvol ingelogd',
+        options: {
+          action: {
+            text: 'Ok',
+            onClick: (_e, toastObject) => {
+              toastObject.goAway(0)
+            },
+          },
+          keepOnHover: true,
+          type: 'success',
+        },
+      },
+    ],
   },
 }

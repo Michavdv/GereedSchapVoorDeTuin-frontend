@@ -1,9 +1,27 @@
 <template>
   <div class="container-page">
     <Header />
-    <Nuxt class="pages" />
+    <Nuxt />
+    <Footer />
   </div>
 </template>
+
+<script>
+import VueCookiebot from '@ambitiondev/vue-cookiebot-plugin'
+import Vue from 'vue'
+
+// Fetching the cookiebanner with the plugin 'vue-cookiebot-plugin'
+Vue.use(VueCookiebot, {
+  cookieBotID: '0b085555-c7a5-41a2-87d3-0d25e4f543c4',
+})
+
+export default {
+  mounted() {
+    // Shows the cookiebanner
+    this.$cookiebot.consentBanner()
+  },
+}
+</script>
 
 <style lang="scss">
 html {
@@ -32,13 +50,9 @@ html {
   .container-page {
     display: flex;
     flex-direction: column;
-
-    .pages {
-      min-width: 18.25rem;
-      max-width: 78rem;
-      margin: 0 auto;
-      padding: 0 40px;
-    }
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
 
     .main {
       flex: 1;

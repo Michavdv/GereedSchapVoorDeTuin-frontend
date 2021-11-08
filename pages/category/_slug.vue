@@ -1,23 +1,22 @@
 <template>
   <div>
-    <LazyHomeBanner />
-    <LazyRecommendedProduct />
-    <LazyHomeCategoryList />
+    <LazySubCategoryList :sub-category-name="slug" />
   </div>
 </template>
 
 <script>
 export default {
-  async asyncData({ $getData }) {
-    // Tries to fetch data from Strapi (CMS) which, if exists, will be stored in the state
+  async asyncData({ params, $getData }) {
     try {
       await $getData('product/setProduct', 'products')
       await $getData('category/setCategory', 'categories')
-      await $getData('home/setBanner', 'home-banner')
+      await $getData('subcategory/setSubCategory', 'sub-categories')
     } catch (e) {
       // eslint-disable-next-line no-console
       console.error(e)
     }
+    const slug = await params.slug // When calling /abc the slug will be "abc"
+    return { slug }
   },
 }
 </script>
