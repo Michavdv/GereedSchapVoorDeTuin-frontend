@@ -406,6 +406,31 @@ export const state = () => ({
         },
       ],
     },
+    {
+      id: 77,
+      Name: 'Slakkenborstel 100cm set van 4 stuks',
+      category: { Name: 'Overige' },
+      Description:
+        'Slakken vinden sommige planten heerlijk en eten graag uw plant op. Gebruik een slakkenborstel als barriere voor slakken. Deze is eenvoudig rondom uw plant te leggen. Steek de twee uiteinden in de grond en zet de borstel in het midden extra vast met de bijgeleverde gaffels. Maak een geul langs de buitenkant van de borstel en leg deze aarde aan de binnenkant van de slakkenborstel. Zorg dat er geen openingen meer zijn en voorkom overhangend blad. Ook geschikt voor moestuinbakken. De borstel dient op de rand te worden bevestigd. ',
+      Price: 10.95,
+      Measurement: {
+        Lengte: '1090',
+        Breedte: '142',
+        Diepte: '40',
+        Gewicht: '232',
+      },
+      Tags: ['Hooivork', 'Hooivorken', 'Vorken', 'Landbouw', 'Los 2 tands'],
+      Rating: 4.6,
+      Type: ['2 T 4V', '2 T 4,5V', '2 T 5V', '2 T 5,5V', 'Los 2 tands'],
+      Image: [
+        {
+          url: require('~/assets/img/products/hooivork.jpeg'),
+        },
+        {
+          url: require('~/assets/img/products/schep.jpg'),
+        },
+      ],
+    },
   ],
 })
 

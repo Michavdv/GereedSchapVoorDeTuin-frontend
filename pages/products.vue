@@ -181,7 +181,13 @@ export default {
       checkedCategories: [],
       givenMinPrice: 0,
       givenMaxPrice: 100,
+      products: { products: [], amount: 0 },
     }
+  },
+
+  async fetch() {
+    this.products = await this.getProducts()
+    console.log(this.products)
   },
 
   mounted() {
@@ -196,6 +202,24 @@ export default {
       } else {
         this.menuOpen = true
       }
+    },
+    async getProducts() {
+      const apiResult = await fetch(
+        'https://gereedschapvoordetuin.pythonanywhere.com/products/',
+        {
+          headers: new Headers({
+            Authorization: process.env.api_token,
+          }),
+        }
+      )
+        .then((res) => res)
+        .catch((err) => console.error(err))
+
+      if (apiResult.status === 200) {
+        return apiResult.json()
+      }
+
+      return { products: [], amount: 0 }
     },
     categorizeProducts(category, minPrice, maxPrice) {
       if (category === null) {

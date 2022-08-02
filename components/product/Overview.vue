@@ -176,24 +176,24 @@
         </div>
       </div>
       <div
-        v-if="product.Measurement !== undefined"
+        v-if="product.Measurement"
         class="flex-container overview-specifications"
       >
         <h4>Gewicht en afmetingen</h4>
         <table class="overview-table">
-          <tr>
+          <tr v-if="product.Measurement.Gewicht">
             <td>Gewicht</td>
             <td>{{ product.Measurement.Gewicht }} kg</td>
           </tr>
-          <tr>
+          <tr v-if="product.Measurement.Lengte">
             <td>Lengte</td>
             <td>{{ product.Measurement.Lengte }} cm</td>
           </tr>
-          <tr>
+          <tr v-if="product.Measurement.Diepte">
             <td>Diepte</td>
             <td>{{ product.Measurement.Diepte }} cm</td>
           </tr>
-          <tr>
+          <tr v-if="product.Measurement.Breedte">
             <td>Breedte</td>
             <td>{{ product.Measurement.Breedte }} cm</td>
           </tr>
