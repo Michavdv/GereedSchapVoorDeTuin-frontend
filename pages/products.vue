@@ -204,14 +204,11 @@ export default {
       }
     },
     async getProducts() {
-      const apiResult = await fetch(
-        'https://gereedschapvoordetuin.pythonanywhere.com/products/',
-        {
-          headers: new Headers({
-            Authorization: process.env.api_token,
-          }),
-        }
-      )
+      const apiResult = await fetch('http://127.0.0.1:8000/products/', {
+        headers: new Headers({
+          Authorization: process.env.api_token,
+        }),
+      })
         .then((res) => res)
         .catch((err) => console.error(err))
 

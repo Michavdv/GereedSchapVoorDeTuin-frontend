@@ -85,6 +85,14 @@ export default {
     },
   },
 
+  env: {
+    api_token: process.env.API_TOKEN,
+    // api_url:
+    //   process.env.NODE_ENV !== 'production'
+    //     ? process.env.DEV_API
+    //     : process.env.PROD_API,
+  },
+
   toast: {
     position: 'bottom-center',
     duration: 5000,
