@@ -59,10 +59,10 @@
     <div class="searchbar-container" @click="searchLinkClick()">
       <NuxtLink
         v-for="product in filteredList"
-        :key="product.id"
-        :to="'/product/' + product.id"
+        :key="product.product_id"
+        :to="'/product/' + product.product_id"
         class="search-items"
-        >{{ product.Name }}
+        >{{ product.product_name }}
       </NuxtLink>
     </div>
     <div class="flex-container categories-header">
@@ -122,6 +122,7 @@
 
 <script>
 import Vue from 'vue'
+import { useStore } from '~/store/product'
 
 export default Vue.extend({
   data() {
@@ -134,11 +135,13 @@ export default Vue.extend({
   computed: {
     filteredList() {
       let count = 0
-      return this.$store.state.product.list.filter((product) => {
+      console.log(useStore().$state.list.products)
+      return useStore().$state.list.products.filter((product) => {
         return (
-          (product.Name.toLowerCase().includes(this.search.toLowerCase()) &&
-            count++ < 10) ||
-          (product.Tags.includes(this.search.toLowerCase()) && count++ < 10)
+          product.product_name
+            .toLowerCase()
+            .includes(this.search.toLowerCase()) && count++ < 10
+          // || (product.Tags.includes(this.search.toLowerCase()) && count++ < 10)
         )
       })
     },

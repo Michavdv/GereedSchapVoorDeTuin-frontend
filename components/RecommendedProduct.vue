@@ -5,8 +5,8 @@
     <div class="products">
       <NuxtLink
         v-for="product in filteredRecommendedList"
-        :key="product.Id"
-        :to="'/product/' + product.id"
+        :key="product.product_id"
+        :to="'/product/' + product.product_id"
       >
         <LazyProduct :product="product" />
       </NuxtLink>
@@ -15,11 +15,13 @@
 </template>
 
 <script>
+import { useStore } from '~/store/product'
+
 export default {
   computed: {
     filteredRecommendedList() {
       let count = 0
-      const data = this.$store.state.product.list.filter(() => {
+      const data = useStore().$state.list.filter(() => {
         return count++ < 6
       })
       return data

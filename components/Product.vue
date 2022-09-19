@@ -2,31 +2,29 @@
   <div class="flex-container product-category">
     <div class="product-image-container">
       <img
-        v-if="product.Image.length === 0"
+        v-if="product.product_image === null"
         class="product-image-category"
         src="~/assets/img/Dummy-product.jpg"
         alt=""
         loading="lazy"
       />
       <img
-        v-else-if="product.Image[0].url[1] !== '_'"
+        v-else-if="product.product_image !== '_'"
         class="product-image-category"
-        :src="'http://localhost:1337' + product.Image[0].url"
+        :src="product.product_image"
         alt="product"
         loading="lazy"
       />
       <img
         v-else
         class="product-image-category"
-        :src="product.Image[0].url"
+        :src="product.product_image"
         alt="product"
         loading="lazy"
       />
     </div>
-    <p class="product-name-category">{{ product.Name }}</p>
-    <span class="product-price-category"
-      >€{{ product.Price }}<span v-if="product.Price % 1 === 0">.-</span></span
-    >
+    <p class="product-name-category">{{ product.product_name }}</p>
+    <span class="product-price-category">{{ product.product_price }}</span>
     <button class="product-watch">
       <font-awesome-icon class="cart-icon" :icon="['fas', 'cart-arrow-down']" />
       Bekijk & Bestel

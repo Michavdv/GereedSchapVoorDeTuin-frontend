@@ -5,7 +5,9 @@
       v-if="
         $store.state.product.list.filter(
           (product) =>
-            product.Name.toLowerCase().includes(productName.toLowerCase()) ||
+            product.product_name
+              .toLowerCase()
+              .includes(productName.toLowerCase()) ||
             product.Tags.includes(productName.toLowerCase())
         ).length !== 0
       "
@@ -15,11 +17,13 @@
         <NuxtLink
           v-for="product in $store.state.product.list.filter(
             (product) =>
-              product.Name.toLowerCase().includes(productName.toLowerCase()) ||
+              product.product_name
+                .toLowerCase()
+                .includes(productName.toLowerCase()) ||
               product.Tags.includes(productName.toLowerCase())
           )"
           :key="product.Id"
-          :to="'/product/' + product.id"
+          :to="'/product/' + product.product_id"
         >
           <LazyProduct :product="product" />
         </NuxtLink>

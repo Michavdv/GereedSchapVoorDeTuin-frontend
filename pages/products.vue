@@ -8,7 +8,7 @@
           v-if="
             checkedCategories.length === 0 &&
             givenMinPrice === 0 &&
-            givenMaxPrice === mostExpensiveProduct
+            givenMaxPrice === 100
           "
           >Filter {{ countProducts(null) }} resultaten</span
         >
@@ -20,7 +20,7 @@
       </button>
       <div class="flex-container products-all-split">
         <div class="flex-container products-all-category">
-          <h5>Categorieën</h5>
+          <!-- <h5>Categorieën</h5>
           <div
             v-for="category in $store.state.category.list"
             :key="category.id"
@@ -36,14 +36,13 @@
             <label class="filter-label" :for="category.Name">{{
               category.Name + ' (' + countProducts(category.Name) + ')'
             }}</label>
-          </div>
+          </div> -->
           <h5 class="filter-price-title">Prijs</h5>
           <div class="flex-container filter-price">
             <input
               id="minPrice"
               v-model="givenMinPrice"
               type="range"
-              :max="mostExpensiveProduct"
               step="0.50"
             />
             <label for="minPrice">Minimaal: €{{ givenMinPrice }}</label>
@@ -52,7 +51,6 @@
               id="maxPrice"
               v-model="givenMaxPrice"
               type="range"
-              :max="mostExpensiveProduct"
               step="0.50"
             />
             <label for="maxPrice">Maximaal: €{{ givenMaxPrice }}</label>
@@ -62,14 +60,14 @@
           v-if="
             checkedCategories.length === 0 &&
             givenMinPrice === 0 &&
-            givenMaxPrice === mostExpensiveProduct
+            givenMaxPrice === 100
           "
           class="products-all-product"
         >
           <NuxtLink
             v-for="product in categorizeProducts(null)"
-            :key="product.id"
-            :to="'/product/' + product.id"
+            :key="product.product_id"
+            :to="'/product/' + product.product_id"
           >
             <LazyProduct :product="product" />
           </NuxtLink>
@@ -77,12 +75,12 @@
         <div v-else class="products-all-product">
           <NuxtLink
             v-for="product in categorizeProducts(
-              checkedCategories,
+              null,
               givenMinPrice,
               givenMaxPrice
             )"
-            :key="product.id"
-            :to="'/product/' + product.id"
+            :key="product.product_id"
+            :to="'/product/' + product.product_id"
           >
             <LazyProduct :product="product" />
           </NuxtLink>
@@ -98,7 +96,7 @@
         />
         <h5 class="filter-title">Filteren</h5>
       </div>
-      <div class="flex-container filter-items">
+      <!-- <div class="flex-container filter-items">
         <div v-for="category in $store.state.category.list" :key="category.id">
           <div v-if="countProducts(category.Name) !== 0">
             <label :for="category.Name">{{
@@ -112,24 +110,12 @@
             />
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="flex-container filter-items-price">
-        <input
-          id="minPrice"
-          v-model="givenMinPrice"
-          type="range"
-          :max="mostExpensiveProduct"
-          step="0.50"
-        />
+        <input id="minPrice" v-model="givenMinPrice" type="range" step="0.50" />
         <label for="minPrice">Minimaal: €{{ givenMinPrice }}</label>
         <br />
-        <input
-          id="maxPrice"
-          v-model="givenMaxPrice"
-          type="range"
-          :max="mostExpensiveProduct"
-          step="0.50"
-        />
+        <input id="maxPrice" v-model="givenMaxPrice" type="range" step="0.50" />
         <label for="maxPrice">Maximaal: €{{ givenMaxPrice }}</label>
       </div>
       <button class="filter-button" @click="toggleMenu()">
@@ -138,7 +124,7 @@
           v-if="
             checkedCategories.length === 0 &&
             givenMinPrice === 0 &&
-            givenMaxPrice === mostExpensiveProduct
+            givenMaxPrice === 100
           "
           >Filter {{ countProducts(null) }} resultaten</span
         >
@@ -160,38 +146,24 @@ export default {
   //     return redirect('/login')
   //   }
   // },
-  async asyncData({ $getData }) {
-    // Tries to fetch data from Strapi (CMS) which, if exists, will be stored in the state
-    try {
-      await $getData('product/setProduct', 'products')
-    } catch (e) {
-      // eslint-disable-next-line no-console
-      console.error(e)
-    }
-  },
+  // async asyncData({ $getData }) {
+  //   // Tries to fetch data from Strapi (CMS) which, if exists, will be stored in the state
+  //   try {
+  //     await $getData('product/setProduct', 'products')
+  //   } catch (e) {
+  //     // eslint-disable-next-line no-console
+  //     console.error(e)
+  //   }
+  // },
   data() {
     // The default values for the mobile navbar
     return {
-      mostExpensiveProduct:
-        Math.max.apply(
-          null,
-          this.$store.state.product.list.map((product) => product.Price)
-        ) + 1,
       menuOpen: false,
       checkedCategories: [],
       givenMinPrice: 0,
       givenMaxPrice: 100,
       products: { products: [], amount: 0 },
     }
-  },
-
-  async fetch() {
-    this.products = await this.getProducts()
-    console.log(this.products)
-  },
-
-  mounted() {
-    this.givenMaxPrice = this.mostExpensiveProduct
   },
 
   methods: {
@@ -219,14 +191,13 @@ export default {
       return { products: [], amount: 0 }
     },
     categorizeProducts(category, minPrice, maxPrice) {
-      if (category === null) {
-        return this.$store.state.product.list
-      } else {
-        let data = []
+      let data = this.products.products
+      // Sorting Categories !! OUT OF ORDER !!
+      if (category !== null) {
         if (Array.isArray(category)) {
           if (category.length !== 0) {
             for (const categoryName of category) {
-              const products = this.$store.state.product.list.filter(
+              const products = this.products.products.list.filter(
                 (product) => product.category.Name === categoryName
               )
               for (let i = 0; i < products.length; i++) {
@@ -235,25 +206,29 @@ export default {
             }
           }
         }
-        if (minPrice !== 0 || maxPrice !== this.mostExpensiveProduct) {
-          if (data.length !== 0) {
-            data = data.filter(
-              (product) =>
-                product.Price >= minPrice && product.Price <= maxPrice
-            )
-          } else {
-            data = this.$store.state.product.list.filter(
-              (product) =>
-                product.Price >= minPrice && product.Price <= maxPrice
-            )
-          }
-        }
-        return data
       }
+
+      // Sorting minPrice and maxPrice
+      if (minPrice !== 0 || maxPrice !== 100) {
+        if (this.products.products.length !== 0) {
+          data = this.products.products.filter(
+            (product) =>
+              parseInt(product.product_price.replace('€', '')) >= minPrice &&
+              parseInt(product.product_price.replace('€', '')) <= maxPrice
+          )
+        } else {
+          data = this.products.products.filter(
+            (product) =>
+              parseInt(product.product_price.replace('€', '')) >= minPrice &&
+              parseInt(product.product_price.replace('€', '')) <= maxPrice
+          )
+        }
+      }
+      return data
     },
     countProducts(category, minPrice, maxPrice) {
       if (category !== null && !Array.isArray(category)) {
-        return this.$store.state.product.list.filter(
+        return useStore().$state.list.filter(
           (product) => product.category.Name === category
         ).length
       } else {
@@ -262,7 +237,7 @@ export default {
         if (Array.isArray(category)) {
           if (category.length !== 0) {
             for (const categoryName of category) {
-              const products = this.$store.state.product.list.filter(
+              const products = useStore().$state.list.filter(
                 (product) => product.category.Name === categoryName
               )
               for (let i = 0; i < products.length; i++) {
@@ -272,16 +247,16 @@ export default {
             count = data.length
           }
         } else {
-          return this.$store.state.product.list.length
+          return useStore().$state.list.length
         }
-        if (minPrice !== 0 || maxPrice !== this.mostExpensiveProduct) {
+        if (minPrice !== 0 || maxPrice !== 100) {
           if (data.length !== 0) {
             count = data.filter(
               (product) =>
                 product.Price >= minPrice && product.Price <= maxPrice
             ).length
           } else {
-            count = this.$store.state.product.list.filter(
+            count = useStore().$state.list.filter(
               (product) =>
                 product.Price >= minPrice && product.Price <= maxPrice
             ).length

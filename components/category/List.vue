@@ -45,7 +45,7 @@
             (product) => product.category.Name === categoryName
           )"
           :key="product.Id"
-          :to="'/product/' + product.id"
+          :to="'/product/' + product.product_id"
         >
           <LazyProduct :product="product" />
         </NuxtLink>

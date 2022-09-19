@@ -2,13 +2,13 @@
   <div class="overview">
     <div
       v-for="product in $store.state.product.list.filter(
-        (product) => product.id === parseInt(productId)
+        (product) => product.product_id === parseInt(productId)
       )"
       :key="product.Id"
       class="flex-container overview-product"
     >
       <div>
-        <h1>{{ product.Name }}</h1>
+        <h1>{{ product.product_name }}</h1>
         <LazyProductRating :rating="product.Rating" />
       </div>
       <div class="flex-container overview-info">
@@ -74,9 +74,9 @@
               :to="
                 '/product/' +
                 getProductId(
-                  product.id,
+                  product.product_id,
                   product.Type[n - 1],
-                  product.category.Name
+                  product.category.product_name
                 )
               "
               class="overview-type"
@@ -241,9 +241,9 @@ export default {
       }
     },
     getProductId(id, type, category) {
-      const product = this.$store.state.product.list.filter(
+      const product = useStore().$state.list.filter(
         (product) =>
-          product.category.Name === category && product.Tags.includes(type)
+          product.category.product_name === category && product.Tags.includes(type)
         // add .toLowerCase() on type when adding Strapi
       )
       if (product.length !== 0) return product[0].id

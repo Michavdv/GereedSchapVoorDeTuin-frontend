@@ -9,6 +9,7 @@
 <script>
 import VueCookiebot from '@ambitiondev/vue-cookiebot-plugin'
 import Vue from 'vue'
+import { useStore } from '~/store/product'
 
 // Fetching the cookiebanner with the plugin 'vue-cookiebot-plugin'
 Vue.use(VueCookiebot, {
@@ -16,9 +17,31 @@ Vue.use(VueCookiebot, {
 })
 
 export default {
+  async fetch() {
+    useStore().$state.list = await this.getProducts()
+  },
+
   mounted() {
     // Shows the cookiebanner
     this.$cookiebot.consentBanner()
+  },
+
+  methods: {
+    async getProducts() {
+      const apiResult = await fetch('http://127.0.0.1:8000/products/', {
+        headers: new Headers({
+          Authorization: process.env.api_token,
+        }),
+      })
+        .then((res) => res)
+        .catch((err) => console.error(err))
+
+      if (apiResult.status === 200) {
+        return apiResult.json()
+      }
+
+      return { products: [] }
+    },
   },
 }
 </script>
